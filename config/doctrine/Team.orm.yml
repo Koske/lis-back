@@ -1,0 +1,26 @@
+App\Entity\Team:
+    type: entity
+    table: team
+
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+
+    fields:
+        name:
+            type: string
+            lenght: 255
+            nullable: false
+        description:
+            type: text
+            nullable: true
+        dateCreated:
+            type: datetime
+            nullable: false
+        dateUpdated:
+            type: datetime
+            nullable: false
+        deleted:
+            type: boolean
+            nullable: false

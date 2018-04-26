@@ -1,0 +1,28 @@
+App\Entity\Etape:
+    type: entity
+    table: etape
+
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        name:
+            type: string
+            lenght: 255
+            nullable: true
+        description:
+            type: text
+            nullable: true
+        start:
+            type: datetime
+            nullable: false
+        end:
+            type: datetime
+            nullable: false
+    manyToOne:
+        project:
+            targetEntity: Project
+            joinColumn:
+                name: project_id
+                referencedColumnName: id

@@ -1,0 +1,31 @@
+App\Entity\Bonus:
+    type: entity
+    table: bonus
+
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+
+    fields:
+        value:
+            type: decimal
+            nullable: false
+        date:
+            type: datetime
+        dateCreated:
+            type: datetime
+            nullable: false
+        dateUpdated:
+            type: datetime
+            nullable: false
+        deleted:
+            type: boolean
+            nullable: false
+
+    manyToOne:
+        user:
+            targetEntity: User
+            joinColumn:
+                name: user_id
+                referencedColumnName: id

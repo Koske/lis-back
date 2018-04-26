@@ -7,6 +7,7 @@ App\Entity\User:
             type: integer
             generator: { strategy: AUTO }
 
+
     fields:
         firstName:
             type: string
@@ -14,5 +15,37 @@ App\Entity\User:
             nullable: true
         lastName:
             type: string
-            lenght: 255
             nullable: true
+        deleted:
+            type: boolean
+            nullable: false
+
+    manyToOne:
+        userType:
+            targetEntity: UserType
+            joinColumn:
+                name: user_type_id
+                referencedColumnName: id
+        position:
+            targetEntity: Position
+            fetch: EAGER
+            joinColumn:
+                name: position_id
+                referencedColumnName: id
+        team:
+            targetEntity: Team
+            joinColumn:
+                name: team_id
+                referencedColumnName: id
+
+    manyToMany:
+        userRoles:
+            targetEntity: Role
+            joinTable:
+                name: role_user
+                joinColumn:
+                    name: role_id
+                    referencedColumnName: id
+                inverseJoinColumn:
+                    name: user_id
+                    referencedColumnName: id

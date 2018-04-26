@@ -12,4 +12,5 @@ namespace App\API;
 abstract class HandlerType
 {
     const User = 1;
+    const Presence = 2;
 }

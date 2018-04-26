@@ -1,0 +1,22 @@
+App\Entity\Account:
+    type: entity
+    table: account
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        bank:
+            type: string
+            lenght: 255
+            nullable: true
+        accountNumber:
+            type: string
+            lenght: 255
+            nullable: true
+    manyToOne:
+        businessClient:
+            targetEntity: BusinessClient
+            joinColumn:
+                name: business_client_id
+                referencedColumnName: id

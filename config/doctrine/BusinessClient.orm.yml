@@ -1,0 +1,21 @@
+App\Entity\BusinessClient:
+    type: entity
+    table: business_client
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+
+    fields:
+        name:
+            type: string
+            lenght: 255
+            nullable: true
+        address:
+            type: string
+            lenght: 255
+            nullable: true
+        phone_number:
+            type: string
+            lenght: 255
+            nullable: true

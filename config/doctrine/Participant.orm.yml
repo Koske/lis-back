@@ -1,0 +1,19 @@
+App\Entity\Participant:
+    type: entity
+    table: participant
+
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    manyToOne:
+        participantType:
+            targetEntity: ParticipantType
+            joinColumn:
+                name: participant_type_id
+                referencedColumnName: id
+        user:
+            targetEntity: User
+            joinColumn:
+                name: user_id
+                referencedColumnName: id

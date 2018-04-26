@@ -29,6 +29,42 @@ class UserController extends BaseController
         return $user;
     }
 
+    public function getCreateUserDataAction(Request $request)
+    {
+
+        $handler = $this->getHandler($request, HandlerType::User);
+
+        return $handler->getCreateUserData();
+    }
+
+    public function createUserAction(Request $request)
+    {
+
+        $handler = $this->getHandler($request, HandlerType::User);
+
+        return $handler->createUser($request);
+    }
+
+    public function getUsersAction(Request $request)
+    {
+
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
+        $handler = $this->getHandler($request, HandlerType::User);
+
+        return $handler->getUsers($request);
+    }
+
+    public function getSearchUserAction(Request $request)
+    {
+
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
+        $handler = $this->getHandler($request, HandlerType::User);
+
+        return $handler->getSearchUser($request);
+    }
+
     public function editUserAction(Request $request)
     {
         return new Response();

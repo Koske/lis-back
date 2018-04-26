@@ -1,0 +1,39 @@
+App\Entity\Role:
+    type: entity
+    table: role
+
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+
+    fields:
+        name:
+            type: string
+            lenght: 255
+            nullable: false
+        type:
+            type: integer
+            nullable: false
+        dateCreated:
+            type: datetime
+            nullable: false
+        dateUpdated:
+            type: datetime
+            nullable: false
+        deleted:
+            type: boolean
+            nullable: false
+
+
+    manyToMany:
+        permissions:
+            targetEntity: Permission
+            joinTable:
+                name: role_permission
+                joinColumn:
+                    name: role_id
+                    referencedColumnName: id
+                inverseJoinColumn:
+                    name: permission_id
+                    referencedColumnName: id

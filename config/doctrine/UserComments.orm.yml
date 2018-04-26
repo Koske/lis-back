@@ -1,0 +1,39 @@
+App\Entity\UserComments:
+    type: entity
+    table: user_comments
+
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+
+    fields:
+        title:
+            type: string
+            lenght: 255
+            nullable: true
+        text:
+            type: text
+            nullable: true
+        dateCreated:
+            type: datetime
+            nullable: false
+        dateUpdated:
+            type: datetime
+            nullable: false
+        deleted:
+            type: boolean
+            nullable: false
+
+    manyToOne:
+        userCreated:
+            targetEntity: User
+            joinColumn:
+                name: user_created_id
+                referencedColumnName: id
+        forUser:
+            targetEntity: User
+            joinColumn:
+                name: for_user_id
+                referencedColumnName: id
+

@@ -1,0 +1,33 @@
+App\Entity\DayOff:
+    type: entity
+    table: day_off
+
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+
+    fields:
+        start:
+            type: datetime
+            nullable: false
+        end:
+            type: datetime
+            nullable: true
+        dateCreated:
+            type: datetime
+            nullable: false
+        dateUpdated:
+            type: datetime
+            nullable: false
+        deleted:
+            type: boolean
+            nullable: false
+
+    manyToOne:
+        user:
+            targetEntity: User
+            joinColumn:
+                name: user_id
+                referencedColumnName: id
+

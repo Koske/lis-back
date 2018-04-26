@@ -1,0 +1,12 @@
+App\Entity\Country:
+    type: entity
+    table: country
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        name:
+            type: string
+            lenght: 255
+            nullable: true

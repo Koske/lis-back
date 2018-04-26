@@ -10,6 +10,7 @@ namespace App\API\Factory;
 
 
 use App\API\HandlerType;
+use App\API\V1\PresenceHandler;
 use App\API\V1\UserHandler;
 
 class ApiHandlerFactoryV1
@@ -20,6 +21,10 @@ class ApiHandlerFactoryV1
         if ($type == HandlerType::User) {
             return new UserHandler($em, $container, $logger);
         }
-      return null;
+
+        if ($type == HandlerType::Presence) {
+            return new PresenceHandler($em, $container, $logger);
+        }
+        return null;
     }
 }

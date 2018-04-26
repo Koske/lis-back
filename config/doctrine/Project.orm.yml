@@ -1,0 +1,48 @@
+App\Entity\Project:
+    type: entity
+    table: project
+
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+
+    fields:
+        name:
+            type: string
+            lenght: 255
+            nullable: true
+        description:
+            type: text
+            nullable: true
+        startDate:
+            type: datetime
+            nullable: true
+        endDate:
+            type: datetime
+            nullable: true
+        estimatedDuration:
+            type: datetime
+            nullable: true
+        dateCreated:
+            type: datetime
+            nullable: false
+        dateUpdated:
+            type: datetime
+            nullable: false
+        deleted:
+            type: boolean
+            nullable: false
+
+    manyToOne:
+        userCreated:
+            targetEntity: User
+            joinColumn:
+                name: user_created_id
+                referencedColumnName: id
+        projectType:
+            targetEntity: ProjectType
+            joinColumn:
+                name: project_type_id
+                referencedColumnName: id
+

@@ -1,0 +1,26 @@
+App\Entity\UserType:
+    type: entity
+    table: user_type
+
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+
+    fields:
+        name:
+            type: string
+            lenght: 255
+            nullable: true
+        type:
+            type: integer
+            nullable: true
+        dateCreated:
+            type: datetime
+            nullable: false
+        dateUpdated:
+            type: datetime
+            nullable: false
+        deleted:
+            type: boolean
+            nullable: false

@@ -1,0 +1,40 @@
+App\Entity\Presence:
+    type: entity
+    table: presence
+
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+
+    fields:
+        start:
+            type: datetime
+            nullable: false
+        end:
+            type: datetime
+            nullable: true
+        closed:
+            type: boolean
+            nullable: false
+            default: false
+        businessCheckOut:
+            type: boolean
+            nullable: false
+            default: false
+        dateCreated:
+            type: datetime
+            nullable: false
+        dateUpdated:
+            type: datetime
+            nullable: true
+        deleted:
+            type: boolean
+            nullable: true
+
+    manyToOne:
+        user:
+            targetEntity: User
+            joinColumn:
+                name: user_id
+                referencedColumnName: id

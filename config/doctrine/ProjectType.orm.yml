@@ -1,0 +1,26 @@
+App\Entity\ProjectType:
+    type: entity
+    table: project_type
+
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        name:
+            type: string
+            lenght: 255
+            nullable: true
+        description:
+            type: text
+            lenght: 255
+            nullable: true
+        dateCreated:
+            type: datetime
+            nullable: false
+        dateUpdated:
+            type: datetime
+            nullable: false
+        deleted:
+            type: boolean
+            nullable: false
