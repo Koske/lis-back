@@ -1,0 +1,19 @@
+App\Entity\AccessToken:
+    type: entity
+    table: accesstoken
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+
+    manyToOne:
+        client:
+            targetEntity: Client
+            joinColumn:
+                name: client_id
+                referencedColumnName: id
+        user:
+            targetEntity: User
+            joinColumn:
+                name: user_id
+                referencedColumnName: id

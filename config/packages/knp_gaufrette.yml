@@ -1,0 +1,10 @@
+knp_gaufrette:
+    adapters:
+        app:
+            local:
+                directory: /public/uploads
+
+    filesystems:
+            app:
+                adapter:    app
+                alias:      app_filesystem
