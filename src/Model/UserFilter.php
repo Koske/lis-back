@@ -23,6 +23,8 @@ class UserFilter
 
     protected $team;
 
+    protected $deleted;
+
     /**
      * @return mixed
      */
@@ -117,6 +119,22 @@ class UserFilter
     public function setTeam($team)
     {
         $this->team = $team;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDeleted()
+    {
+        return $this->deleted;
+    }
+
+    /**
+     * @param mixed $deleted
+     */
+    public function setDeleted($deleted)
+    {
+        $this->deleted = $deleted;
     }
 
 }

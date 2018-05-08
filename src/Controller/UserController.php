@@ -29,12 +29,12 @@ class UserController extends BaseController
         return $user;
     }
 
-    public function getCreateUserDataAction(Request $request)
+    public function getUserDataAction(Request $request)
     {
 
         $handler = $this->getHandler($request, HandlerType::User);
 
-        return $handler->getCreateUserData();
+        return $handler->getUserData();
     }
 
     public function createUserAction(Request $request)
@@ -65,8 +65,33 @@ class UserController extends BaseController
         return $handler->getSearchUser($request);
     }
 
-    public function editUserAction(Request $request)
+    public function getUserByIdAction(Request $request)
     {
-        return new Response();
+
+        //$this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
+        $handler = $this->getHandler($request, HandlerType::User);
+
+        return $handler->getUserById($request);
+
+    }
+
+    public function getUpdateUserAction(Request $request)
+    {
+//        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
+        $handler = $this->getHandler($request, HandlerType::User);
+
+        return $handler->getUpdateUser($request);
+    }
+
+    public function getDeleteUserAction(Request $request)
+    {
+//        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
+        $handler = $this->getHandler($request, HandlerType::User);
+
+        return $handler->getDeleteUser($request);
+
     }
 }

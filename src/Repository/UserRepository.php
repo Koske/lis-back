@@ -29,6 +29,10 @@ class UserRepository extends Repository
 
         }
 
+        $queryDelete = new\Elastica\Query\Match();
+        $queryDelete->setFieldQuery('deleted', $userFilter->getDeleted());
+        $boolQuery->addShould($queryDelete);
+
         $userTypesCount = count($userFilter->getUserType());
 
         if($userTypesCount != 0)

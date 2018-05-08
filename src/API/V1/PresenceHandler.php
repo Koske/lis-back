@@ -45,7 +45,12 @@ class PresenceHandler extends BaseHandler
         $presence->setStart(new \DateTime());
         $presence->setDateCreated(new \DateTime());
         $presence->setClosed(false);
-        $presence->setBusinessCheckOut(false);
+
+        if ($params->business) {
+            $presence->setBusinessCheckOut(true);
+        } else {
+            $presence->setBusinessCheckOut(false);
+        }
 
         $this->em->persist($presence);
         $this->em->flush();

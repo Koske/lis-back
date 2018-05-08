@@ -9,7 +9,10 @@
 namespace App\API\V1;
 
 use App\API\V1\Interfaces\IUserHandler;
+use App\Entity\Position;
+use App\Entity\Team;
 use App\Entity\User;
+use App\Entity\UserType;
 use App\Model\UserFilter;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Container\ContainerInterface;
@@ -41,18 +44,30 @@ class UserHandler extends BaseHandler implements IUserHandler
 
         $params = $this->getParams($request);
 
-        if (!$params->firstName || !$params->lastName || !$params->email || !$params->password || !$params->userTypeId || !$params->positionId || !$params->teamId) {
-
-
+        if (!$params->firstName ||
+            !$params->lastName ||
+            !$params->email ||
+            !$params->password ||
+            !$params->userTypeId ||
+            !$params->positionId ||
+            !$params->teamId)
+        {
             return $this->getParameterMissingResponse();
         }
 
-        $this->container->get('app.user')->createUser($params->firstName, $params->lastName, $params->email, $params->password, $params->userTypeId, $params->positionId, $params->teamId);
+        $this->container->get('app.user')->createUser(
+            $params->firstName,
+            $params->lastName,
+            $params->email,
+            $params->password,
+            $params->userTypeId,
+            $params->positionId,
+            $params->teamId);
 
         return $this->getSuccessResponse();
     }
 
-    public function getCreateUserData()
+    public function getUserData()
     {
 
         if ($this->user == null) {
@@ -77,11 +92,11 @@ class UserHandler extends BaseHandler implements IUserHandler
         $perPage = $request->get('perPage');
         $elasticManager = $this->container->get('fos_elastica.manager');
 
-
         $userFilter = new UserFilter();
 
         $userFilter->setPerPage($perPage);
         $userFilter->setPage($page);
+        $userFilter->setDeleted(false);
 
 
         $users = $elasticManager->getRepository(User::class)->search($userFilter);
@@ -124,5 +139,71 @@ class UserHandler extends BaseHandler implements IUserHandler
             'page' => $page,
             'total_pages' => $totalPages
         ]);
+    }
+
+    public function getUserById(Request $request)
+    {
+
+        $params = $this->getParams($request);
+
+        if (!$params->user_id) {
+            return $this->getParameterMissingResponse();
+        }
+
+        $user = $this->em->getRepository(User::class)->find($params->user_id);
+
+        return $this->getResponse([
+            'status' => 'ok',
+            'user' => $user
+        ], Response::HTTP_OK);
+
+    }
+
+    public function getUpdateUser(Request $request)
+    {
+        $params = $this->getParams($request);
+
+        if (!$params->email) {
+            return $this->getParameterMissingResponse();
+        }
+
+        $user = $this->em->getRepository(User::class)->findOneBy(['email' => $params->email]);
+
+        $userType = $this->em->getRepository(UserType::class)->find($params->userTypeId);
+
+        $position = $this->em->getRepository(Position::class)->find($params->positionId);
+
+        $team = $this->em->getRepository(Team::class)->find($params->teamId);
+
+        $user->setFirstName($params->firstName);
+        $user->setLastName($params->lastName);
+        $user->setUserType($userType);
+        $user->setPosition($position);
+        $user->setTeam($team);
+        $user->setDeleted(false);
+
+        $this->em->persist($user);
+        $this->em->flush();
+
+        return $this->getResponse(['status' => 'ok'], Response::HTTP_OK);
+
+    }
+
+    public function getDeleteUser(Request $request)
+    {
+        $params = $this->getParams($request);
+
+        if (!$params->email) {
+            return $this->getParameterMissingResponse();
+        }
+
+        $user = $this->em->getRepository(User::class)->findOneBy(['email' => $params->email]);
+
+        $user->setDeleted(true);
+
+//        $this->em->remove($user);
+        $this->em->flush();
+
+        return $this->getResponse(['status' => 'ok'], Response::HTTP_OK);
     }
 }

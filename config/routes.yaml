@@ -20,11 +20,11 @@ user_edit:
     path: /api/user/edit
     controller: App\Controller\UserController::editUserAction
 
-create_user_data:
-    path: /api/user/create-data
-    controller: App\Controller\UserController::getCreateUserDataAction
+user_data:
+    path: /api/user/data
+    controller: App\Controller\UserController::getUserDataAction
 
-create_user_create:
+create_user:
     path: /api/user/create
     controller: App\Controller\UserController::createUserAction
 
@@ -35,6 +35,18 @@ get_users:
 search_users:
     path: /api/user/search
     controller: App\Controller\UserController::getSearchUserAction
+
+get_user_by_id:
+    path: /api/user/get
+    controller: App\Controller\UserController::getUserByIdAction
+
+update_users:
+    path: /api/user/update
+    controller: App\Controller\UserController::getUpdateUserAction
+
+delete_users:
+    path: /api/user/delete
+    controller: App\Controller\UserController::getDeleteUserAction
 
 
 #Presence

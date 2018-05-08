@@ -24,6 +24,8 @@ fos_elastica:
                             type: object
                             properties:
                                 id: ~
+                        deleted:
+                            type: boolean
                     persistence:
                         driver: orm
                         model: App\Entity\User
