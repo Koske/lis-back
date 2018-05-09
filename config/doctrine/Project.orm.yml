@@ -29,10 +29,10 @@ App\Entity\Project:
             nullable: false
         dateUpdated:
             type: datetime
-            nullable: false
+            nullable: true
         deleted:
             type: boolean
-            nullable: false
+            nullable: true
 
     manyToOne:
         userCreated:

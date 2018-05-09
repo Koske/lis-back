@@ -10,7 +10,10 @@ namespace App\API\Factory;
 
 
 use App\API\HandlerType;
+use App\API\V1\EtapeHandler;
 use App\API\V1\PresenceHandler;
+use App\API\V1\ProjectHandler;
+use App\API\V1\TaskHandler;
 use App\API\V1\UserHandler;
 
 class ApiHandlerFactoryV1
@@ -24,6 +27,20 @@ class ApiHandlerFactoryV1
 
         if ($type == HandlerType::Presence) {
             return new PresenceHandler($em, $container, $logger);
+        }
+
+        if($type == HandlerType::Project)
+        {
+            return new ProjectHandler( $em, $container, $logger);
+        }
+
+        if($type == HandlerType::Etape)
+        {
+            return new EtapeHandler( $em, $container, $logger);
+        }
+
+        if($type == HandlerType::Task) {
+            return new TaskHandler($em, $container, $logger);
         }
         return null;
     }

@@ -19,10 +19,10 @@ App\Entity\Task:
             nullable: false
         dateUpdated:
             type: datetime
-            nullable: false
+            nullable: true
         deleted:
             type: boolean
-            nullable: false
+            nullable: true
         hour:
             type: integer
             nullable: false
@@ -31,7 +31,7 @@ App\Entity\Task:
             nullable: false
         end:
             type: datetime
-            nullable: false
+            nullable: true
     manyToOne:
         participent:
             targetEntity: Participant

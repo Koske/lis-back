@@ -34,6 +34,7 @@ services:
     OAuth2\OAuth2: '@fos_oauth_server.server'
     FOS\OAuthServerBundle\Propel\AccessTokenManager: '@fos_oauth_server.access_token_manager.default'
     FOS\ElasticaBundle\Finder\PaginatedFinderInterface: '@fos_elastica.finder.lis.user'
+    FOS\ElasticaBundle\Finder\PaginatedFinderInterface: '@fos_elastica.finder.lis.project'
 
     app.api.factory:
         class: App\API\Factory\ApiFactory
@@ -72,3 +73,13 @@ services:
     app.get.users:
         class: App\Service\GetUsers
         arguments: ["@doctrine.orm.entity_manager"]
+
+    app.project:
+         class: App\Service\ProjectService
+         arguments: ["@doctrine.orm.entity_manager"]
+    app.task:
+         class: App\Service\TaskService
+         arguments: ["@doctrine.orm.entity_manager"]
+    app.etape:
+         class: App\Service\EtapeService
+         arguments: ["@doctrine.orm.entity_manager"]

@@ -120,15 +120,16 @@ class UserHandler extends BaseHandler implements IUserHandler
 
 
         $userFilter = new UserFilter();
-        $userFilter->setSearchTerm($search_term);
 
+        $userFilter->setSearchTerm($search_term);
         $userFilter->setPerPage($perPage);
         $userFilter->setPage($page);
+        $userFilter->setDeleted(false);
 
 
         $users = $elasticManager->getRepository(User::class)->search($userFilter);
 
-        $totalPages = floor($users['total'] / $perPage);
+        $totalPages = floor($users['total'] / $perPage + 1);
 
 
         return $this->getResponse([
@@ -189,19 +190,36 @@ class UserHandler extends BaseHandler implements IUserHandler
 
     }
 
+//    public function getDeleteUser(Request $request)
+//    {
+//        $params = $this->getParams($request);
+//
+//        if (!$params->email) {
+//            return $this->getParameterMissingResponse();
+//        }
+//
+//        $user = $this->em->getRepository(User::class)->findOneBy(['email' => $params->email]);
+//
+//        $user->setDeleted(true);
+//
+//        $this->em->flush();
+//
+//        return $this->getResponse(['status' => 'ok'], Response::HTTP_OK);
+//    }
+
     public function getDeleteUser(Request $request)
     {
         $params = $this->getParams($request);
 
-        if (!$params->email) {
+        if(!$params->id)
+        {
             return $this->getParameterMissingResponse();
         }
 
-        $user = $this->em->getRepository(User::class)->findOneBy(['email' => $params->email]);
+        $user = $this->em->getRepository(User::class)->find($params->id);
 
         $user->setDeleted(true);
-
-//        $this->em->remove($user);
+        $this->em->persist($user);
         $this->em->flush();
 
         return $this->getResponse(['status' => 'ok'], Response::HTTP_OK);

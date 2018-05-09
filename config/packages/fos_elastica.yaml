@@ -32,5 +32,35 @@ fos_elastica:
                         repository: App\Repository\UserRepository
                         finder: ~
                         provider: ~
+                project:
+                    properties:
+                        id:
+                           type: integer
+                        name:
+                           type: string
+                        description:
+                           type: string
+                        startDate:
+                           type: date
+                        estimatedDuration:
+                           type: date
+                        deleted:
+                           type: boolean
+                        projectType:
+                            type: object
+                            properties:
+                                id:
+                                   type: integer
+                        userCreated:
+                            type: object
+                            properties:
+                                id:
+                                   type: integer
+                    persistence:
+                        driver: orm
+                        model: App\Entity\Project
+                        repository: App\Repository\ProjectRepository
+                        finder: ~
+                        provider: ~
 
 

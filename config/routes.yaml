@@ -62,3 +62,46 @@ presence_checkOut:
 presence_userIsCheckedIn:
     path: /api/presence/userIsCheckedIn
     controller: App\Controller\PresenceController::userIsCheckedInAction
+
+
+#Project
+
+lis_newproject:
+   path: /api/np
+   controller: App\Controller\ProjectController:newProjectAction
+
+lis_getproject:
+   path: /api/gp
+   controller: App\Controller\ProjectController:getProjectAction
+
+lis_getprojectPP:
+   path: /api/gppp
+   controller: App\Controller\ProjectController:getProjectPPAction
+
+lis_editproject:
+   path: /api/ep
+   controller: App\Controller\ProjectController:editProjectAction
+
+lis_deleteproject:
+   path: /api/dp
+   controller: App\Controller\ProjectController:deleteProjectAction
+
+lis_etapeProject:
+   path: /api/dtp
+   controller: App\Controller\EtapeController:newEtapeProjectAction
+
+lis_getEtape:
+   path: /api/ge
+   controller: App\Controller\EtapeController:getEtapesAction
+
+lis_taskProject:
+   path: /api/tp
+   controller: App\Controller\TaskController:taskProjectAction
+
+lis_getTask:
+   path: /api/gett
+   controller: App\Controller\TaskController:getTaskAction
+
+lis_doneTask:
+   path: /api/donet
+   controller: App\Controller\TaskController:doneTaskAction
