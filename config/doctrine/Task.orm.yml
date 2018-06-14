@@ -33,7 +33,7 @@ App\Entity\Task:
             type: datetime
             nullable: true
     manyToOne:
-        participent:
+        participant:
             targetEntity: Participant
             joinColumn:
                 name: participant_id

@@ -38,12 +38,15 @@ class PresenceHandler extends BaseHandler
                 return $this->getResponse(['status' => 'error', 'message' => 'You must checkout first'], Response::HTTP_OK);
             }
         }
+        $currentDate = new \DateTime();
 
         $presence = new Presence();
 
         $presence->setUser($user);
         $presence->setStart(new \DateTime());
         $presence->setDateCreated(new \DateTime());
+        $presence->setYear($currentDate->format("Y"));
+        $presence->setMonth($currentDate->format("m"));
         $presence->setClosed(false);
 
         if ($params->business) {
@@ -74,9 +77,11 @@ class PresenceHandler extends BaseHandler
         $user = $this->em->getRepository(User::class)->findOneBy(['email' => $params->email]);
         $presence = $this->em->getRepository(Presence::class)->findOneBy(['user' => $user, 'end' => null]);
 
+
         $presence->setEnd(new \DateTime());
         $presence->setDateUpdated(new \DateTime());
         $presence->setClosed(true);
+
 
         $this->em->persist($presence);
         $this->em->flush();

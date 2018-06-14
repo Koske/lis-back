@@ -20,6 +20,18 @@ App\Entity\Etape:
         end:
             type: datetime
             nullable: false
+        hoursCompleted:
+            type: integer
+            nullable: true
+        hoursNotCompleted:
+            type: integer
+            nullable: true
+        tasksCompleted:
+            type: integer
+            nullable: true
+        tasksNotCompleted:
+            type: integer
+            nullable: true
     manyToOne:
         project:
             targetEntity: Project

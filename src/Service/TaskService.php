@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use App\Entity\Etape;
+use App\Entity\Participant;
 use App\Entity\Task;
 use Doctrine\ORM\EntityManagerInterface;
 
@@ -15,9 +16,9 @@ class TaskService
         $this->em = $em;
     }
 
-    public function createTask($id, $name, $description, $dateStarted, $hour){
+    public function createTask($id, $name, $description, $dateStarted, $hour, $participant){
         $etape = $this->em->getRepository(Etape::class)->find($id);
-
+        $participantObj = $this->em->getRepository(Participant::class)->find($participant);
 
         $task = new Task();
         $task->setName($name);
@@ -26,6 +27,8 @@ class TaskService
         $task->setStart(new \DateTime($dateStarted));
         $task->setHour($hour);
         $task->setEtape($etape);
+
+        $task->setParticipant($participantObj);
 
         $this->em->persist($task);
         $this->em->flush();

@@ -11,8 +11,10 @@ namespace App\API\Factory;
 
 use App\API\HandlerType;
 use App\API\V1\EtapeHandler;
+use App\API\V1\ParticipantHandler;
 use App\API\V1\PresenceHandler;
 use App\API\V1\ProjectHandler;
+use App\API\V1\ReportHandler;
 use App\API\V1\TaskHandler;
 use App\API\V1\UserHandler;
 
@@ -41,6 +43,14 @@ class ApiHandlerFactoryV1
 
         if($type == HandlerType::Task) {
             return new TaskHandler($em, $container, $logger);
+        }
+
+        if($type == HandlerType::Participant) {
+            return new ParticipantHandler($em, $container, $logger);
+        }
+
+        if($type == HandlerType::Report) {
+            return new ReportHandler($em, $container, $logger);
         }
         return null;
     }

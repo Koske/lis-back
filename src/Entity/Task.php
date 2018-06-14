@@ -53,9 +53,9 @@ class Task
     private $end;
 
     /**
-     * @var \App\Entity\Participent
+     * @var \App\Entity\Participant
      */
-    private $participent;
+    private $participant;
 
 
     /**
@@ -261,27 +261,27 @@ class Task
     }
 
     /**
-     * Set participent
+     * Set participant
      *
-     * @param \App\Entity\Participent $participent
+     * @param \App\Entity\Participant $participant
      *
      * @return Task
      */
-    public function setParticipent(\App\Entity\Participent $participent = null)
+    public function setParticipant(\App\Entity\Participant $participant = null)
     {
-        $this->participent = $participent;
+        $this->participant = $participant;
 
         return $this;
     }
 
     /**
-     * Get participent
+     * Get participant
      *
-     * @return \App\Entity\Participent
+     * @return \App\Entity\Participant
      */
-    public function getParticipent()
+    public function getParticipant()
     {
-        return $this->participent;
+        return $this->participant;
     }
     /**
      * @var \App\Entity\Etape

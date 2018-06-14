@@ -31,6 +31,12 @@ App\Entity\Presence:
         deleted:
             type: boolean
             nullable: true
+        year:
+            type: integer
+            nullable: true
+        month:
+            type: integer
+            nullable: true
 
     manyToOne:
         user:

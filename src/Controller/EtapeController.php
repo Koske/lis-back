@@ -19,4 +19,22 @@ class EtapeController extends BaseController
 
         return $handler->getEtapes($request);
     }
+    public function getEtapeHoursAction(Request $request){
+        $handler = $this->getHandler($request, HandlerType::Etape, null);
+
+
+        return $handler->setHours($request);
+    }
+    public function getEtapeByIdAction(Request $request){
+        $handler = $this->getHandler($request, HandlerType::Etape, null);
+
+
+        return $handler->getEtapeById($request);
+    }
+    public function editEtapeAction(Request $request){
+        $handler = $this->getHandler($request, HandlerType::Etape, null);
+
+
+        return $handler->editEtape($request);
+    }
 }

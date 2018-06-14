@@ -1,0 +1,5 @@
+App\Entity\Participant:
+    exclusion_policy: ALL
+    properties:
+        id:
+            expose: true

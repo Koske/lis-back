@@ -37,6 +37,26 @@ class Etape
      */
     private $project;
 
+    /**
+     * @var integer
+     */
+    private $hoursCompleted;
+
+    /**
+     * @var integer
+     */
+    private $hoursNotCompleted;
+
+    /**
+     * @var integer
+     */
+    private $tasksCompleted;
+
+    /**
+     * @var integer
+     */
+    private $tasksNotCompleted;
+
 
     /**
      * Get id
@@ -70,6 +90,102 @@ class Etape
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Set hoursCompleted
+     *
+     * @param integer $hoursCompleted
+     *
+     * @return Etape
+     */
+    public function setHoursCompleted($hoursCompleted)
+    {
+        $this->hoursCompleted = $hoursCompleted;
+
+        return $this;
+    }
+
+    /**
+     * Get hoursCompleted
+     *
+     * @return integer
+     */
+    public function getHoursCompleted()
+    {
+        return $this->hoursCompleted;
+    }
+
+    /**
+     * Set tasksCompleted
+     *
+     * @param integer $tasksCompleted
+     *
+     * @return Etape
+     */
+    public function setTasksCompleted($tasksCompleted)
+    {
+        $this->tasksCompleted = $tasksCompleted;
+
+        return $this;
+    }
+
+    /**
+     * Get tasksCompleted
+     *
+     * @return integer
+     */
+    public function getTasksCompleted()
+    {
+        return $this->tasksCompleted;
+    }
+
+    /**
+     * Set tasksNotCompleted
+     *
+     * @param integer $tasksNotCompleted
+     *
+     * @return Etape
+     */
+    public function setTasksNotCompleted($tasksNotCompleted)
+    {
+        $this->tasksNotCompleted = $tasksNotCompleted;
+
+        return $this;
+    }
+
+    /**
+     * Get tasksNotCompleted
+     *
+     * @return integer
+     */
+    public function getTasksNotCompleted()
+    {
+        return $this->tasksNotCompleted;
+    }
+
+    /**
+     * Set hoursNotCompleted
+     *
+     * @param integer $hoursNotCompleted
+     *
+     * @return Etape
+     */
+    public function setHoursNotCompleted($hoursNotCompleted)
+    {
+        $this->hoursNotCompleted = $hoursNotCompleted;
+
+        return $this;
+    }
+
+    /**
+     * Get hoursNotCompleted
+     *
+     * @return integer
+     */
+    public function getHoursNotCompleted()
+    {
+        return $this->hoursNotCompleted;
     }
 
     /**

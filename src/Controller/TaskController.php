@@ -30,4 +30,17 @@ class TaskController extends BaseController
 
         return $handler->doneTask($request);
     }
+    public function getTaskByIdAction(Request $request){
+        $handler = $this->getHandler($request, HandlerType::Task, null);
+
+
+        return $handler->getTaskById($request);
+    }
+    public function editTaskAction(Request $request)
+    {
+        $handler = $this->getHandler($request, HandlerType::Task, null);
+
+
+        return $handler->editTask($request);
+    }
 }

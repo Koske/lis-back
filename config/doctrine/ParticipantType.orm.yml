@@ -1,6 +1,6 @@
 App\Entity\ParticipantType:
     type: entity
-    table: participent_type
+    table: participant_type
 
     id:
         id:

@@ -16,4 +16,6 @@ abstract class HandlerType
     const Project = 3;
     const Etape = 4;
     const Task = 5;
+    const Participant = 6;
+    const Report = 7;
 }

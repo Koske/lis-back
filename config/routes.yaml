@@ -70,6 +70,18 @@ lis_newproject:
    path: /api/np
    controller: App\Controller\ProjectController:newProjectAction
 
+lis_searchProjects:
+   path: /api/searchProjects
+   controller: App\Controller\ProjectController:searchProjectsAction
+
+lis_finishProject:
+   path: /api/finishProject
+   controller: App\Controller\ProjectController:finishProjectAction
+
+lis_filterProjects:
+   path: /api/filterProjects
+   controller: App\Controller\ProjectController:filterProjectsAction
+
 lis_getproject:
    path: /api/gp
    controller: App\Controller\ProjectController:getProjectAction
@@ -90,14 +102,28 @@ lis_etapeProject:
    path: /api/dtp
    controller: App\Controller\EtapeController:newEtapeProjectAction
 
-lis_getEtape:
-   path: /api/ge
-   controller: App\Controller\EtapeController:getEtapesAction
-
 lis_taskProject:
    path: /api/tp
    controller: App\Controller\TaskController:taskProjectAction
 
+#Etape
+lis_getEtape:
+   path: /api/ge
+   controller: App\Controller\EtapeController:getEtapesAction
+
+lis_editEtape:
+   path: /api/editEtape
+   controller: App\Controller\EtapeController:editEtapeAction
+
+lis_getEtapeById:
+   path: /api/getEtapeById
+   controller: App\Controller\EtapeController:getEtapeByIdAction
+
+lis_getEtapeHours:
+   path: /api/getEtapeHours
+   controller: App\Controller\EtapeController:getEtapeHoursAction
+
+#Task
 lis_getTask:
    path: /api/gett
    controller: App\Controller\TaskController:getTaskAction
@@ -105,3 +131,52 @@ lis_getTask:
 lis_doneTask:
    path: /api/donet
    controller: App\Controller\TaskController:doneTaskAction
+
+lis_getTaskById:
+   path: /api/getTaskById
+   controller: App\Controller\TaskController:getTaskByIdAction
+
+lis_editTask:
+   path: /api/editTask
+   controller: App\Controller\TaskController:editTaskAction
+
+#Participant
+
+lis_getParticipants:
+   path: /api/getParticipants
+   controller: App\Controller\ParticipantController:getParticipantAction
+
+lis_getParticipantForTask:
+   path: /api/getParticipantForTask
+   controller: App\Controller\ParticipantController:getParticipantForTaskAction
+
+lis_getNoneParticipants:
+   path: /api/getNoneParticipants
+   controller: App\Controller\ParticipantController:getNoneParticipantAction
+
+lis_addParticipant:
+   path: /api/addParticipant
+   controller: App\Controller\ParticipantController:addParticipantAction
+
+lis_removeParticipant:
+   path: /api/removeParticipant
+   controller: App\Controller\ParticipantController:removeParticipantAction
+
+lis_getParticipantForProject:
+   path: /api/getParticipantForProject
+   controller: App\Controller\ParticipantController:getParticipantForProjectAction
+
+lis_getParticipantTypes:
+   path: /api/getParticipantTypes
+   controller: App\Controller\ParticipantController:getParticipantTypesAction
+
+
+#Report
+
+lis_getInitialInfo:
+   path: /api/getInitialInfo
+   controller: App\Controller\ReportController:getInitialInfoAction
+
+lis_getInfoForMonth:
+   path: /api/getInfoForMonth
+   controller: App\Controller\ReportController:getInfoForMonthAction

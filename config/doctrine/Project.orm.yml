@@ -33,6 +33,9 @@ App\Entity\Project:
         deleted:
             type: boolean
             nullable: true
+        finished:
+            type: boolean
+            nullable: true
 
     manyToOne:
         userCreated:
@@ -45,4 +48,6 @@ App\Entity\Project:
             joinColumn:
                 name: project_type_id
                 referencedColumnName: id
+
+
 

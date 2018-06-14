@@ -35,6 +35,7 @@ services:
     FOS\OAuthServerBundle\Propel\AccessTokenManager: '@fos_oauth_server.access_token_manager.default'
     FOS\ElasticaBundle\Finder\PaginatedFinderInterface: '@fos_elastica.finder.lis.user'
     FOS\ElasticaBundle\Finder\PaginatedFinderInterface: '@fos_elastica.finder.lis.project'
+    FOS\ElasticaBundle\Finder\PaginatedFinderInterface: '@fos_elastica.finder.lis.participant'
 
     app.api.factory:
         class: App\API\Factory\ApiFactory

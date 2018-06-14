@@ -48,7 +48,7 @@ class UserController extends BaseController
     public function getUsersAction(Request $request)
     {
 
-        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+       // $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
 
         $handler = $this->getHandler($request, HandlerType::User);
 

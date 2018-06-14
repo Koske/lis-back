@@ -13,10 +13,30 @@ class ProjectRepository extends Repository
     {
         $boolQuery = new \Elastica\Query\BoolQuery();
 
+        if($projectFilter->getSearchTerm() !=null && $projectFilter->getSearchTerm() != '')
+        {
+            $querySearch = new\Elastica\Query\MultiMatch();
+            $querySearch->setFuzziness(0.9);
+            $querySearch->setQuery($projectFilter->getSearchTerm());
+            $querySearch->setFields(['name', 'description']);
+            $querySearch->setMinimumShouldMatch('50%');
+            $boolQuery->addMust($querySearch);
+
+
+        }
+
         $queryActive = new \Elastica\Query\Match();
         $queryActive->setFieldQuery('deleted', $projectFilter->getDeleted());
         $boolQuery->addMust($queryActive);
 
+        if($projectFilter->getFinished()) {
+            $finishedQuery = new \Elastica\Query\BoolQuery();
+
+            $query = new \Elastica\Query\Match();
+            $query->setFieldQuery('finished', $projectFilter->getFinished());
+            $finishedQuery->addShould($query);
+            $boolQuery->addMust($finishedQuery);
+        }
 
         $query = new \Elastica\Query();
         $query->setQuery($boolQuery);

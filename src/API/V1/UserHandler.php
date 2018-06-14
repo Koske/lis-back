@@ -84,9 +84,6 @@ class UserHandler extends BaseHandler implements IUserHandler
     public function getUsers(Request $request)
     {
 
-        if ($this->user == null) {
-//            return $this->getResponse(['error' => 'not exist'], Response::HTTP_FORBIDDEN);
-        }
 
         $page = $request->get('page');
         $perPage = $request->get('perPage');
@@ -110,6 +107,7 @@ class UserHandler extends BaseHandler implements IUserHandler
             'total_pages' => $totalPages
         ]);
     }
+
 
     public function getSearchUser(Request $request)
     {

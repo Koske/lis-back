@@ -23,7 +23,9 @@ class ProjectService
         $project->setDescription($description);
         $project->setStartDate(new \DateTime($dateStarted));
         $project->setEstimatedDuration(new \DateTime($estimatedDuration));
-
+        $project->setFinished(false);
+        $project->setDateCreated(new \DateTime());
+        $project->setDateUpdated(new \DateTime());
         $this->em->persist($project);
         $this->em->flush();
 
@@ -42,7 +44,7 @@ class ProjectService
         $project->setDescription($description);
         $project->setStartDate(new \DateTime($dateStarted));
         $project->setEstimatedDuration(new \DateTime($estimatedDuration));
-
+        $project->setDateUpdated(new \DateTime());
         $this->em->persist($project);
         $this->em->flush();
 
@@ -54,6 +56,7 @@ class ProjectService
             $id
         );
         $project->setDeleted(true);
+        $project->setDateUpdated(new \DateTime());
         $this->em->persist($project);
         $this->em->flush();
 

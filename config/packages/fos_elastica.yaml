@@ -9,23 +9,29 @@ fos_elastica:
                     properties:
                         id:
                             type: integer
-                        firstName: ~
-                        lastName: ~
-                        email: ~
+                        firstName:
+                            type: string
+                        lastName:
+                            type: string
+                        email:
+                            type: string
+                        deleted:
+                            type: boolean
                         userType:
                             type: object
                             properties:
-                                id: ~
+                                id:
+                                    type: integer
                         position:
                             type: object
                             properties:
-                                id: ~
+                                id:
+                                    type: integer
                         team:
                             type: object
                             properties:
-                                id: ~
-                        deleted:
-                            type: boolean
+                                id:
+                                    type: integer
                     persistence:
                         driver: orm
                         model: App\Entity\User
@@ -46,6 +52,8 @@ fos_elastica:
                            type: date
                         deleted:
                            type: boolean
+                        finished:
+                           type: boolean
                         projectType:
                             type: object
                             properties:
@@ -62,5 +70,18 @@ fos_elastica:
                         repository: App\Repository\ProjectRepository
                         finder: ~
                         provider: ~
-
-
+                participant:
+                    properties:
+                        id:
+                            type: integer
+                        project:
+                            type: object
+                            properties:
+                                id:
+                                   type: integer
+                    persistence:
+                        driver: orm
+                        model: App\Entity\Participant
+                        repository: App\Repository\ParticipantRepository
+                        finder: ~
+                        provider: ~

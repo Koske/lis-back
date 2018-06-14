@@ -6,6 +6,10 @@ App\Entity\Participant:
         id:
             type: integer
             generator: { strategy: AUTO }
+    fields:
+        deleted:
+            type: boolean
+            nullable: true
     manyToOne:
         participantType:
             targetEntity: ParticipantType
@@ -16,4 +20,9 @@ App\Entity\Participant:
             targetEntity: User
             joinColumn:
                 name: user_id
+                referencedColumnName: id
+        project:
+            targetEntity: Project
+            joinColumn:
+                name: project_id
                 referencedColumnName: id

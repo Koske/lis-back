@@ -31,56 +31,56 @@ class UserRepository extends Repository
 
         $queryDelete = new\Elastica\Query\Match();
         $queryDelete->setFieldQuery('deleted', $userFilter->getDeleted());
-        $boolQuery->addShould($queryDelete);
+        $boolQuery->addMust($queryDelete);
 
-        $userTypesCount = count($userFilter->getUserType());
-
-        if($userTypesCount != 0)
-        {
-            $userTypeQuery = new \Elastica\Query\BoolQuery();
-
-            foreach ($userFilter->getUserType() as $userType)
-            {
-                $query = new \Elastica\Query\Match();
-                $query->setFieldQuery('userType', $userType);
-                $userTypeQuery->addShould($query);
-            }
-
-            $boolQuery->addMust($userTypeQuery);
-        }
-
-        $positionsCount = count($userFilter->getPosition());
-
-        if($positionsCount != 0)
-        {
-            $positionsQuery = new \Elastica\Query\BoolQuery();
-
-            foreach ($userFilter->getUserType() as $position)
-            {
-                $query = new \Elastica\Query\Match();
-                $query->setFieldQuery('position', $position);
-                $positionsQuery->addShould($query);
-            }
-
-            $boolQuery->addMust($positionsQuery);
-        }
-
-        $teamsCount = count($userFilter->getTeam());
-
-        if($teamsCount != 0)
-        {
-            $teamQuery = new \Elastica\Query\BoolQuery();
-
-            foreach ($userFilter->getUserType() as $team)
-            {
-                $query = new \Elastica\Query\Match();
-                $query->setFieldQuery('team', $team);
-                $teamQuery->addShould($query);
-            }
-
-            $boolQuery->addMust($teamQuery);
-        }
-
+//        $userTypesCount = count($userFilter->getUserType());
+//
+//        if($userTypesCount != 0)
+//        {
+//            $userTypeQuery = new \Elastica\Query\BoolQuery();
+//
+//            foreach ($userFilter->getUserType() as $userType)
+//            {
+//                $query = new \Elastica\Query\Match();
+//                $query->setFieldQuery('userType', $userType);
+//                $userTypeQuery->addShould($query);
+//            }
+//
+//            $boolQuery->addMust($userTypeQuery);
+//        }
+//
+//        $positionsCount = count($userFilter->getPosition());
+//
+//        if($positionsCount != 0)
+//        {
+//            $positionsQuery = new \Elastica\Query\BoolQuery();
+//
+//            foreach ($userFilter->getUserType() as $position)
+//            {
+//                $query = new \Elastica\Query\Match();
+//                $query->setFieldQuery('position', $position);
+//                $positionsQuery->addShould($query);
+//            }
+//
+//            $boolQuery->addMust($positionsQuery);
+//        }
+//
+//        $teamsCount = count($userFilter->getTeam());
+//
+//        if($teamsCount != 0)
+//        {
+//            $teamQuery = new \Elastica\Query\BoolQuery();
+//
+//            foreach ($userFilter->getUserType() as $team)
+//            {
+//                $query = new \Elastica\Query\Match();
+//                $query->setFieldQuery('team', $team);
+//                $teamQuery->addShould($query);
+//            }
+//
+//            $boolQuery->addMust($teamQuery);
+//        }
+//
         $query = new \Elastica\Query();
 
         $query->setQuery($boolQuery);

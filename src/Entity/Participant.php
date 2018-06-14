@@ -12,6 +12,10 @@ class Participant
      */
     private $id;
 
+    /**
+     * @var boolean
+     */
+    private $deleted;
 
     /**
      * Get id
@@ -51,6 +55,31 @@ class Participant
     {
         return $this->participantType;
     }
+
+    /**
+     * Set deleted
+     *
+     * @param boolean $deleted
+     *
+     * @return Participant
+     */
+    public function setDeleted($deleted)
+    {
+        $this->deleted = $deleted;
+
+        return $this;
+    }
+
+    /**
+     * Get deleted
+     *
+     * @return boolean
+     */
+    public function getDeleted()
+    {
+        return $this->deleted;
+    }
+
     /**
      * @var \App\Entity\Participant
      */
@@ -61,6 +90,10 @@ class Participant
      */
     private $user;
 
+    /**
+     * @var \App\Entity\Project
+     */
+    private $project;
 
     /**
      * Set participant
@@ -109,4 +142,29 @@ class Participant
     {
         return $this->user;
     }
+
+    /**
+     * Set user
+     *
+     * @param \App\Entity\Project $project
+     *
+     * @return Participant
+     */
+    public function setProject(\App\Entity\Project $project = null)
+    {
+        $this->project = $project;
+
+        return $this;
+    }
+
+    /**
+     * Get project
+     *
+     * @return \App\Entity\Project
+     */
+    public function getProject()
+    {
+        return $this->project;
+    }
+
 }

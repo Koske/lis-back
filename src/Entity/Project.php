@@ -53,6 +53,11 @@ class Project
     private $deleted;
 
     /**
+     * @var boolean
+     */
+    private $finished;
+
+    /**
      * @var \App\Entity\User
      */
     private $userCreated;
@@ -258,6 +263,31 @@ class Project
     public function getDeleted()
     {
         return $this->deleted;
+    }
+
+
+    /**
+     * Set finished
+     *
+     * @param boolean $finished
+     *
+     * @return Project
+     */
+    public function setFinished($finished)
+    {
+        $this->finished = $finished;
+
+        return $this;
+    }
+
+    /**
+     * Get finished
+     *
+     * @return boolean
+     */
+    public function getFinished()
+    {
+        return $this->finished;
     }
 
     /**

@@ -17,6 +17,7 @@ class ProjectFilter
     protected $dateStarted;
     protected $userCreated;
     protected $deleted;
+    protected $finished;
     /**
      * @return mixed
      */
@@ -133,5 +134,17 @@ class ProjectFilter
     public function setDeleted($deleted)
     {
         $this->deleted = $deleted;
+    }
+
+    public function getFinished()
+    {
+        return $this->finished;
+    }
+    /**
+     * @param mixed $finished
+     */
+    public function setFinished($finished)
+    {
+        $this->finished = $finished;
     }
 }

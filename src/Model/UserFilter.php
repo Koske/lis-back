@@ -11,6 +11,7 @@ namespace App\Model;
 
 class UserFilter
 {
+
     protected $perPage;
 
     protected $page;
@@ -24,6 +25,8 @@ class UserFilter
     protected $team;
 
     protected $deleted;
+
+
 
     /**
      * @return mixed

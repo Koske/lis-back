@@ -33,9 +33,21 @@ class Presence
     private $businessCheckOut;
 
     /**
+     * @var integer
+     */
+    private $year;
+
+    /**
+     * @var integer
+     */
+    private $month;
+
+    /**
      * @var \App\Entity\User
      */
     private $user;
+
+
 
 
     /**
@@ -46,6 +58,54 @@ class Presence
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set year
+     *
+     * @param integer $year
+     *
+     * @return Presence
+     */
+    public function setYear($year)
+    {
+        $this->year = $year;
+
+        return $this;
+    }
+
+    /**
+     * Get year
+     *
+     * @return integer
+     */
+    public function getYear()
+    {
+        return $this->year;
+    }
+
+    /**
+     * Set month
+     *
+     * @param integer $month
+     *
+     * @return Presence
+     */
+    public function setMonth($month)
+    {
+        $this->month = $month;
+
+        return $this;
+    }
+
+    /**
+     * Get month
+     *
+     * @return integer
+     */
+    public function getMonth()
+    {
+        return $this->month;
     }
 
     /**

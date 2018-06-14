@@ -39,6 +39,26 @@ class ProjectController extends BaseController
 
         return $handler->deleteProjects($request);
     }
+    public function finishProjectAction(Request $request)
+    {
+        $handler = $this->getHandler($request, HandlerType::Project, null);
 
+
+        return $handler->finishProject($request);
+    }
+    public function filterProjectsAction(Request $request)
+    {
+        $handler = $this->getHandler($request, HandlerType::Project, null);
+
+
+        return $handler->filterProjects($request);
+    }
+    public function searchProjectsAction(Request $request)
+    {
+        $handler = $this->getHandler($request, HandlerType::Project, null);
+
+
+        return $handler->searchProjects($request);
+    }
 
 }
