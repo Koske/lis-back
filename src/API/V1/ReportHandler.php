@@ -72,39 +72,87 @@ class ReportHandler extends BaseHandler
 
         $inJanSend = 0;
         $outJanSend = 0;
+        $notFTJan = 0;
+        $FTJan = 0;
+        $autoCloseJan = 0;
 
         $inFebSend = 0;
         $outFebSend = 0;
+        $notFTFeb = 0;
+        $FTFeb = 0;
+        $autoCloseFeb = 0;
 
         $inMarSend = 0;
         $outMarSend = 0;
+        $notFTMar = 0;
+        $FTMar = 0;
+        $autoCloseMar = 0;
+
 
         $inAprSend = 0;
         $outAprSend = 0;
+        $notFTApr = 0;
+        $FTApr = 0;
+        $autoCloseApr = 0;
+
 
         $inMaySend = 0;
         $outMaySend = 0;
+        $notFTMay = 0;
+        $FTMay = 0;
+        $autoCloseMay = 0;
+
 
         $inJunSend = 0;
         $outJunSend = 0;
+        $notFTJun = 0;
+        $FTJun = 0;
+        $autoCloseJun = 0;
+
 
         $inJulSend = 0;
         $outJulSend = 0;
+        $notFTJul = 0;
+        $FTJul = 0;
+        $autoCloseJul = 0;
+
 
         $inAugSend = 0;
         $outAugSend = 0;
+        $notFTAug = 0;
+        $FTAug = 0;
+        $autoCloseAug = 0;
+
 
         $inSepSend = 0;
         $outSepSend = 0;
+        $notFTSep = 0;
+        $FTSep = 0;
+        $autoCloseSep = 0;
+
 
         $inOctSend = 0;
         $outOctSend = 0;
+        $notFTOct = 0;
+        $FTOct = 0;
+        $autoCloseOct = 0;
+
 
         $inNovSend = 0;
         $outNovSend = 0;
+        $notFTNov = 0;
+        $FTNov = 0;
+        $autoCloseNov = 0;
+
 
         $inDecSend = 0;
         $outDecSend = 0;
+        $notFTDec = 0;
+        $FTDec = 0;
+        $autoCloseDec = 0;
+
+
+
 
         $params = $this->getParams($request);
         $userId = $params->id;
@@ -127,13 +175,22 @@ class ReportHandler extends BaseHandler
                 $secondmiliStart = (int)substr($timeStart, 6, 2) * 1000;
                 $countStartJan++;
                 $checkInTimeJan += $hourmiliStart + $minutemiliStart + $secondmiliStart;
-
                 $timeEnd = $i->getEnd()->format('H:i:s');
                 $hourmiliEnd = (int)substr($timeEnd, 0, 2) * 3600000;
                 $minutemiliEnd = (int)substr($timeEnd, 3, 2) * 60000;
                 $secondmiliEnd = (int)substr($timeEnd, 6, 2) * 1000;
                 $countEndJan++;
                 $checkOutTimeJan += $hourmiliEnd + $minutemiliEnd + $secondmiliEnd;
+                $start = $hourmiliStart + $minutemiliStart + $secondmiliStart;
+                $end = $hourmiliEnd + $minutemiliEnd + $secondmiliEnd;
+
+                if($this->isLessEightHours($start, $end)){
+                    $notFTJan++;
+                }else{
+                    $FTJan++;
+                }
+
+                $autoCloseJan += $this->isAutoClosed($i);
 
             }
             if ($i->getMonth() == 2) {
@@ -151,6 +208,19 @@ class ReportHandler extends BaseHandler
                 $secondmiliEnd = (int)substr($timeEnd, 6, 2) * 1000;
                 $countEndFeb++;
                 $checkOutTimeFeb += $hourmiliEnd + $minutemiliEnd + $secondmiliEnd;
+                $start = $hourmiliStart + $minutemiliStart + $secondmiliStart;
+                $end = $hourmiliEnd + $minutemiliEnd + $secondmiliEnd;
+
+                if($this->isLessEightHours($start, $end)){
+                    $notFTFeb++;
+                }else{
+                    $FTFeb++;
+                }
+
+                $autoCloseFeb += $this->isAutoClosed($i);
+
+
+
 
             }
             if ($i->getMonth() == 3) {
@@ -168,6 +238,17 @@ class ReportHandler extends BaseHandler
                 $secondmiliEnd = (int)substr($timeEnd, 6, 2) * 1000;
                 $countEndMar++;
                 $checkOutTimeMar += $hourmiliEnd + $minutemiliEnd + $secondmiliEnd;
+                $start = $hourmiliStart + $minutemiliStart + $secondmiliStart;
+                $end = $hourmiliEnd + $minutemiliEnd + $secondmiliEnd;
+
+                if($this->isLessEightHours($start, $end)){
+                    $notFTMar++;
+                }else{
+                    $FTMar++;
+                }
+
+                $autoCloseMar += $this->isAutoClosed($i);
+
 
             }
             if ($i->getMonth() == 4) {
@@ -185,6 +266,16 @@ class ReportHandler extends BaseHandler
                 $secondmiliEnd = (int)substr($timeEnd, 6, 2) * 1000;
                 $countEndApr++;
                 $checkOutTimeApr += $hourmiliEnd + $minutemiliEnd + $secondmiliEnd;
+                $start = $hourmiliStart + $minutemiliStart + $secondmiliStart;
+                $end = $hourmiliEnd + $minutemiliEnd + $secondmiliEnd;
+
+                if($this->isLessEightHours($start, $end)){
+                    $notFTApr++;
+                }else{
+                    $FTApr++;
+                }
+                $autoCloseApr += $this->isAutoClosed($i);
+
 
             }
             if ($i->getMonth() == 5) {
@@ -202,6 +293,17 @@ class ReportHandler extends BaseHandler
                 $secondmiliEnd = (int)substr($timeEnd, 6, 2) * 1000;
                 $countEndMay++;
                 $checkOutTimeMay += $hourmiliEnd + $minutemiliEnd + $secondmiliEnd;
+                $start = $hourmiliStart + $minutemiliStart + $secondmiliStart;
+                $end = $hourmiliEnd + $minutemiliEnd + $secondmiliEnd;
+
+                if($this->isLessEightHours($start, $end)){
+                    $notFTMay++;
+                }else{
+                    $FTMay++;
+                }
+
+                $autoCloseMay += $this->isAutoClosed($i);
+
 
             }
             if ($i->getMonth() == 6) {
@@ -219,6 +321,17 @@ class ReportHandler extends BaseHandler
                 $secondmiliEnd = (int)substr($timeEnd, 6, 2) * 1000;
                 $countEndJun++;
                 $checkOutTimeJun += $hourmiliEnd + $minutemiliEnd + $secondmiliEnd;
+                $start = $hourmiliStart + $minutemiliStart + $secondmiliStart;
+                $end = $hourmiliEnd + $minutemiliEnd + $secondmiliEnd;
+
+                if($this->isLessEightHours($start, $end)){
+                    $notFTJun++;
+                }else{
+                    $FTJun++;
+                }
+
+                $autoCloseJun += $this->isAutoClosed($i);
+
 
             }
             if ($i->getMonth() == 7) {
@@ -236,6 +349,17 @@ class ReportHandler extends BaseHandler
                 $secondmiliEnd = (int)substr($timeEnd, 6, 2) * 1000;
                 $countEndJul++;
                 $checkOutTimeJul += $hourmiliEnd + $minutemiliEnd + $secondmiliEnd;
+                $start = $hourmiliStart + $minutemiliStart + $secondmiliStart;
+                $end = $hourmiliEnd + $minutemiliEnd + $secondmiliEnd;
+
+                if($this->isLessEightHours($start, $end)){
+                    $notFTJul++;
+                }else{
+                    $FTJul++;
+                }
+
+                $autoCloseJul += $this->isAutoClosed($i);
+
 
             }
             if ($i->getMonth() == 8) {
@@ -253,6 +377,17 @@ class ReportHandler extends BaseHandler
                 $secondmiliEnd = (int)substr($timeEnd, 6, 2) * 1000;
                 $countEndAug++;
                 $checkOutTimeAug += $hourmiliEnd + $minutemiliEnd + $secondmiliEnd;
+                $start = $hourmiliStart + $minutemiliStart + $secondmiliStart;
+                $end = $hourmiliEnd + $minutemiliEnd + $secondmiliEnd;
+
+                if($this->isLessEightHours($start, $end)){
+                    $notFTAug++;
+                }else{
+                    $FTAug++;
+                }
+
+                $autoCloseAug += $this->isAutoClosed($i);
+
 
             }
             if ($i->getMonth() == 9) {
@@ -270,6 +405,17 @@ class ReportHandler extends BaseHandler
                 $secondmiliEnd = (int)substr($timeEnd, 6, 2) * 1000;
                 $countEndSep++;
                 $checkOutTimeSep += $hourmiliEnd + $minutemiliEnd + $secondmiliEnd;
+                $start = $hourmiliStart + $minutemiliStart + $secondmiliStart;
+                $end = $hourmiliEnd + $minutemiliEnd + $secondmiliEnd;
+
+                if($this->isLessEightHours($start, $end)){
+                    $notFTSep++;
+                }else{
+                    $FTSep++;
+                }
+
+                $autoCloseSep += $this->isAutoClosed($i);
+
 
             }
             if ($i->getMonth() == 10) {
@@ -287,6 +433,17 @@ class ReportHandler extends BaseHandler
                 $secondmiliEnd = (int)substr($timeEnd, 6, 2) * 1000;
                 $countEndOct++;
                 $checkOutTimeOct += $hourmiliEnd + $minutemiliEnd + $secondmiliEnd;
+                $start = $hourmiliStart + $minutemiliStart + $secondmiliStart;
+                $end = $hourmiliEnd + $minutemiliEnd + $secondmiliEnd;
+
+                if($this->isLessEightHours($start, $end)){
+                    $notFTOct++;
+                }else{
+                    $FTOct++;
+                }
+
+                $autoCloseOct += $this->isAutoClosed($i);
+
 
             }
             if ($i->getMonth() == 11) {
@@ -304,6 +461,17 @@ class ReportHandler extends BaseHandler
                 $secondmiliEnd = (int)substr($timeEnd, 6, 2) * 1000;
                 $countEndNov++;
                 $checkOutTimeNov += $hourmiliEnd + $minutemiliEnd + $secondmiliEnd;
+                $start = $hourmiliStart + $minutemiliStart + $secondmiliStart;
+                $end = $hourmiliEnd + $minutemiliEnd + $secondmiliEnd;
+
+                if($this->isLessEightHours($start, $end)){
+                    $notFTNov++;
+                }else{
+                    $FTNov++;
+                }
+
+                $autoCloseNov += $this->isAutoClosed($i);
+
 
             }
             if ($i->getMonth() == 12) {
@@ -321,6 +489,17 @@ class ReportHandler extends BaseHandler
                 $secondmiliEnd = (int)substr($timeEnd, 6, 2) * 1000;
                 $countEndDec++;
                 $checkOutTimeDec += $hourmiliEnd + $minutemiliEnd + $secondmiliEnd;
+                $start = $hourmiliStart + $minutemiliStart + $secondmiliStart;
+                $end = $hourmiliEnd + $minutemiliEnd + $secondmiliEnd;
+
+                if($this->isLessEightHours($start, $end)){
+                    $notFTDec++;
+                }else{
+                    $FTDec++;
+                }
+
+                $autoCloseDec += $this->isAutoClosed($i);
+
 
             }
 
@@ -547,44 +726,84 @@ class ReportHandler extends BaseHandler
 
 
 
+
+
+
         return $this->getResponse([
             'user' => $user,
+            'presence' => $presence,
 
             'inJanSend' => $inJanSend,
             'outJanSend' => $outJanSend,
+            'notFTJan' => $notFTJan,
+            'FTJan' => $FTJan,
+            'autoCloseJan' => $autoCloseJan,
 
             'inFebSend' => $inFebSend,
             'outFebSend' => $outFebSend,
+            'notFTFeb' => $notFTFeb,
+            'FTFeb' => $FTFeb,
+            'autoCloseFeb' => $autoCloseFeb,
 
             'inMarSend' => $inMarSend,
             'outMarSend' => $outMarSend,
+            'notFTMar' => $notFTMar,
+            'FTMar' => $FTMar,
+            'autoCloseMar' => $autoCloseMar,
 
             'inAprSend' => $inAprSend,
             'outAprSend' => $outAprSend,
+            'notFTApr' => $notFTApr,
+            'FTApr' => $FTApr,
+            'autoCloseApr' => $autoCloseApr,
 
             'inMaySend' => $inMaySend,
             'outMaySend' => $outMaySend,
+            'notFTMay' => $notFTMay,
+            'FTMay' => $FTMay,
+            'autoCloseMay' => $autoCloseMay,
 
             'inJunSend' => $inJunSend,
             'outJunSend' => $outJunSend,
+            'notFTJun' => $notFTJun,
+            'FTJun' => $FTJun,
+            'autoCloseJun' => $autoCloseJun,
 
             'inJulSend' => $inJulSend,
             'outJulSend' => $outJulSend,
+            'notFTJul' => $notFTJul,
+            'FTJul' => $FTJul,
+            'autoCloseJul' => $autoCloseJul,
 
             'inAugSend' => $inAugSend,
             'outAugSend' => $outAugSend,
+            'notFTAug' => $notFTAug,
+            'FTAug' => $FTAug,
+            'autoCloseAug' => $autoCloseAug,
 
             'inSepSend' => $inSepSend,
             'outSepSend' => $outSepSend,
+            'notFTSep' => $notFTSep,
+            'FTSep' => $FTSep,
+            'autoCloseSep' => $autoCloseSep,
 
             'inOctSend' => $inOctSend,
             'outOctSend' => $outOctSend,
+            'notFTOct' => $notFTOct,
+            'FTOct' => $FTOct,
+            'autoCloseOct' => $autoCloseOct,
 
             'inNovSend' => $inNovSend,
             'outNovSend' => $outNovSend,
+            'notFTNov' => $notFTNov,
+            'FTNov' => $FTNov,
+            'autoCloseNov' => $autoCloseNov,
 
             'inDecSend' => $inDecSend,
-            'outDecSend' => $outDecSend
+            'outDecSend' => $outDecSend,
+            'notFTDec' => $notFTDec,
+            'FTDec' => $FTDec,
+            'autoCloseDec' => $autoCloseDec
         ]);
     }
 
@@ -608,4 +827,28 @@ class ReportHandler extends BaseHandler
         ]);
 
     }
+
+    function isWeekend($date) {
+        return (date('N', strtotime($date)) >= 6);
+    }
+
+    function isLessEightHours($start, $end){
+        if($end-$start<28800000){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    function isAutoClosed(Presence $presence){
+        if($presence->getAutoClosed()){
+            return 1;
+        }else{
+            return 0;
+        }
+    }
+
+
+
+
 }

@@ -36,4 +36,22 @@ class PresenceController extends BaseController
         return $handler->userIsCheckedIn($request);
     }
 
+    public function getPresenceByUserAction(Request $request){
+        $handler = $this->getHandler($request, HandlerType::Presence);
+
+        return $handler->getPresenceByUser($request);
+    }
+
+    public function editPresenceAction(Request $request){
+        $handler = $this->getHandler($request, HandlerType::Presence);
+
+        return $handler->editPresence($request);
+    }
+
+    public function getEditedPresencesAction(Request $request){
+        $handler = $this->getHandler($request, HandlerType::Presence);
+
+        return $handler->getEditedPresences($request);
+    }
+
 }

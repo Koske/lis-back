@@ -51,6 +51,18 @@ delete_users:
 
 #Presence
 
+presence_getPresenceByUser:
+    path: /api/getPresenceByUser
+    controller: App\Controller\PresenceController::getPresenceByUserAction
+
+presence_getEditedPresences:
+    path: /api/getEditedPresences
+    controller: App\Controller\PresenceController::getEditedPresencesAction
+
+presence_editPresence:
+    path: /api/editPresence
+    controller: App\Controller\PresenceController::editPresenceAction
+
 presence_checkIn:
     path: /api/presence/checkin
     controller: App\Controller\PresenceController::checkInAction

@@ -2,151 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="80e2725d-051e-4c1a-8b11-773abf7790d7" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/config/serializer/Entity.Participant.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/API/V1/ParticipantHandler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/API/V1/ReportHandler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/ParticipantController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/ReportController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/ParticipantFilter.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/ParticipantRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.dist" beforeDir="false" afterPath="$PROJECT_DIR$/.env.dist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/lis-sf4-backend.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/lis-sf4-backend.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/console" beforeDir="false" afterPath="$PROJECT_DIR$/bin/console" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/FOSUserBundle/serializer/Model.User.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/FOSUserBundle/serializer/Model.User.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/doctrine/AccessToken.orm.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/doctrine/AccessToken.orm.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/doctrine/Account.orm.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/doctrine/Account.orm.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/doctrine/AuthCode.orm.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/doctrine/AuthCode.orm.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/doctrine/Bonus.orm.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/doctrine/Bonus.orm.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/doctrine/BusinessClient.orm.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/doctrine/BusinessClient.orm.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/doctrine/City.orm.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/doctrine/City.orm.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/doctrine/Client.orm.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/doctrine/Client.orm.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/doctrine/Country.orm.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/doctrine/Country.orm.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/doctrine/DayOff.orm.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/doctrine/DayOff.orm.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/doctrine/Etape.orm.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/doctrine/Etape.orm.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/doctrine/Participant.orm.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/doctrine/Participant.orm.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/doctrine/ParticipantType.orm.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/doctrine/ParticipantType.orm.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/doctrine/Permission.orm.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/doctrine/Permission.orm.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/doctrine/Position.orm.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/doctrine/Position.orm.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/doctrine/PresenceEdited.orm.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/PresenceEdited.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/doctrine/Presence.orm.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/doctrine/Presence.orm.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/doctrine/Project.orm.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/doctrine/Project.orm.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/doctrine/ProjectType.orm.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/doctrine/ProjectType.orm.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/doctrine/RefreshToken.orm.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/doctrine/RefreshToken.orm.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/doctrine/Role.orm.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/doctrine/Role.orm.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/doctrine/Salary.orm.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/doctrine/Salary.orm.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/doctrine/Task.orm.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/doctrine/Task.orm.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/doctrine/Team.orm.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/doctrine/Team.orm.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/doctrine/User.orm.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/doctrine/User.orm.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/doctrine/UserComments.orm.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/doctrine/UserComments.orm.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/doctrine/UserType.orm.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/doctrine/UserType.orm.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/dev/jms_serializer.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/dev/jms_serializer.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/dev/monolog.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/dev/monolog.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/dev/routing.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/dev/routing.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/dev/swiftmailer.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/dev/swiftmailer.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/doctrine.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/doctrine.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/doctrine_migrations.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/doctrine_migrations.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/fos_elastica.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/fos_elastica.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/fos_oauth_server.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/fos_oauth_server.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/fos_rest.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/fos_rest.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/fos_user.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/fos_user.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/framework.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/framework.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/jms_serializer.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/jms_serializer.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/knp_gaufrette.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/knp_gaufrette.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/prod/doctrine.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/prod/doctrine.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/prod/jms_serializer.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/prod/jms_serializer.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/prod/monolog.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/prod/monolog.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/routing.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/routing.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/swiftmailer.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/swiftmailer.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/test/framework.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/test/framework.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/test/monolog.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/test/monolog.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/test/swiftmailer.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/test/swiftmailer.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/translation.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/translation.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/twig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/twig.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes/annotations.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes/annotations.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes/dev/twig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes/dev/twig.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/serializer/Entity.User.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/serializer/Entity.User.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/API/Factory/ApiFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/Factory/ApiFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/API/Factory/ApiHandlerFactoryV1.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/Factory/ApiHandlerFactoryV1.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/API/HandlerType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/HandlerType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/API/V1/BaseHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/V1/BaseHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/API/V1/EtapeHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/V1/EtapeHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/API/V1/Interfaces/IUserHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/V1/Interfaces/IUserHandler.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/API/V1/PresenceHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/V1/PresenceHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/API/V1/ProjectHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/V1/ProjectHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/API/V1/TaskHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/V1/TaskHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/API/V1/UserHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/V1/UserHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Command/ClientCreateCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Command/ClientCreateCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/API/V1/ReportHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/V1/ReportHandler.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Command/ClosePresenceCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Command/ClosePresenceCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/BaseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BaseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/EtapeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/EtapeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/PresenceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PresenceController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ProjectController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProjectController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/TaskController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/TaskController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/AccessToken.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/AccessToken.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Account.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Account.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/AuthCode.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/AuthCode.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Bonus.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Bonus.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/BusinessClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/BusinessClient.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/City.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/City.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Client.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Client.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Country.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Country.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/DayOff.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/DayOff.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Etape.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Etape.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Participant.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Participant.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/ParticipantType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/ParticipantType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Permission.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Permission.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Position.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Position.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Presence.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Presence.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Project.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Project.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/ProjectType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/ProjectType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/RefreshToken.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/RefreshToken.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Role.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Role.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Salary.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Salary.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Task.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Task.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Team.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Team.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/UserComments.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/UserComments.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/UserType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/UserType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EventListener/CorsListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventListener/CorsListener.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EventListener/EntityListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventListener/EntityListener.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EventListener/EntityListenerHandlers/BaseListenerHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventListener/EntityListenerHandlers/BaseListenerHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EventListener/EntityListenerHandlers/EntityHandlerFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/EventListener/EntityListenerHandlers/EntityHandlerFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/src/Migrations/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/ProjectFilter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/ProjectFilter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/UserFilter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/UserFilter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/ProjectRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ProjectRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Security/TokenAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/TokenAuthenticator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Security/UserVoter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/UserVoter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/EtapeService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/EtapeService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/FileService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/FileService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/GetUsers.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/GetUsers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/PositionService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/PositionService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/ProjectService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/ProjectService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/TaskService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/TaskService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/TeamService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/TeamService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/UserService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/UserService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/UserTypeService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/UserTypeService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/translations/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/translations/.gitignore" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/vendor/composer/" />
     <ignored path="$PROJECT_DIR$/vendor/doctrine/annotations/" />
@@ -246,23 +111,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ReportHandler.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/API/V1/ReportHandler.php">
+      <file leaf-file-name="PresenceHandler.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/API/V1/PresenceHandler.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="537">
-              <caret line="606" column="35" selection-start-line="606" selection-start-column="35" selection-end-line="606" selection-end-column="35" />
-              <folding>
-                <element signature="e#111#135#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="358">
+              <caret line="210" lean-forward="true" selection-start-line="210" selection-end-line="210" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Presence.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Entity/Presence.php">
+      <file leaf-file-name="PresenceEdited.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Entity/PresenceEdited.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1395">
-              <caret line="105" column="28" selection-start-line="105" selection-start-column="28" selection-end-line="105" selection-end-column="28" />
+            <state relative-caret-position="336">
+              <caret line="44" column="17" selection-start-line="44" selection-start-column="12" selection-end-line="44" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -320,12 +182,16 @@
         <option value="$PROJECT_DIR$/src/Repository/UserRepository.php" />
         <option value="$PROJECT_DIR$/src/API/HandlerType.php" />
         <option value="$PROJECT_DIR$/src/API/Factory/ApiHandlerFactoryV1.php" />
+        <option value="$PROJECT_DIR$/src/Controller/ReportController.php" />
         <option value="$PROJECT_DIR$/config/doctrine/Presence.orm.yml" />
         <option value="$PROJECT_DIR$/src/Entity/Presence.php" />
-        <option value="$PROJECT_DIR$/src/API/V1/PresenceHandler.php" />
-        <option value="$PROJECT_DIR$/src/Controller/ReportController.php" />
-        <option value="$PROJECT_DIR$/config/routes.yaml" />
+        <option value="$PROJECT_DIR$/src/Command/ClosePresenceCommand.php" />
         <option value="$PROJECT_DIR$/src/API/V1/ReportHandler.php" />
+        <option value="$PROJECT_DIR$/src/Entity/PresenceEdited.php" />
+        <option value="$PROJECT_DIR$/config/doctrine/PresenceEdited.orm.yml" />
+        <option value="$PROJECT_DIR$/src/Controller/PresenceController.php" />
+        <option value="$PROJECT_DIR$/config/routes.yaml" />
+        <option value="$PROJECT_DIR$/src/API/V1/PresenceHandler.php" />
       </list>
     </option>
   </component>
@@ -429,16 +295,17 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="367" />
-    <option name="y" value="379" />
-    <option name="width" value="1368" />
-    <option name="height" value="773" />
+    <option name="x" value="224" />
+    <option name="y" value="31" />
+    <option name="width" value="675" />
+    <option name="height" value="772" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -480,6 +347,12 @@
               <item name="lis-sf4-backend" type="b2602c69:ProjectViewProjectNode" />
               <item name="lis-sf4-backend" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Command" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="lis-sf4-backend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lis-sf4-backend" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Controller" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -493,12 +366,6 @@
               <item name="lis-sf4-backend" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Model" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="lis-sf4-backend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lis-sf4-backend" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Repository" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="lis-sf4-backend" type="b2602c69:ProjectViewProjectNode" />
@@ -521,12 +388,12 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../kobas" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -606,12 +473,17 @@
       <workItem from="1528791376569" duration="15980000" />
       <workItem from="1528883506992" duration="3608000" />
       <workItem from="1528888661902" duration="1745000" />
-      <workItem from="1528970335327" duration="1473000" />
+      <workItem from="1528970335327" duration="2137000" />
+      <workItem from="1529320274117" duration="9349000" />
+      <workItem from="1529396496453" duration="9574000" />
+      <workItem from="1529491961684" duration="10925000" />
+      <workItem from="1529575317445" duration="225000" />
+      <workItem from="1529577367597" duration="3221000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="145865000" />
+    <option name="totallyTimeSpent" value="179598000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -623,7 +495,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="39" y="31" width="1330" height="740" extended-state="6" />
+    <frame x="39" y="31" width="1330" height="740" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25528702" />
@@ -658,71 +530,10 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="4" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Controller/BaseController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-122" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/API/V1/BaseHandler.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-345">
-          <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/doctrine/Task.orm.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Service/TaskService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="30" column="27" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/doctrine/Participant.orm.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/doctrine/Etape.orm.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="16" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/TaskController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="43" column="33" selection-start-line="43" selection-start-column="33" selection-end-line="43" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/ParticipantController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="55" column="55" selection-start-line="55" selection-start-column="55" selection-end-line="55" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Participant.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="7" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/Task.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-203">
@@ -755,13 +566,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="328">
           <caret line="77" column="24" selection-start-line="77" selection-start-column="24" selection-end-line="77" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Service/ProjectService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="702">
-          <caret line="58" column="32" selection-start-line="58" selection-start-column="32" selection-end-line="58" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -871,13 +675,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/ProjectController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="492">
-          <caret line="55" column="40" selection-start-line="55" selection-start-column="20" selection-end-line="55" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/API/HandlerType.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -889,13 +686,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
           <caret line="50" column="8" selection-start-line="50" selection-start-column="8" selection-end-line="50" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/API/V1/ProjectHandler.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="28" column="4" selection-start-line="28" selection-start-column="4" selection-end-line="33" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -918,38 +708,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/API/V1/UserHandler.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="109" lean-forward="true" selection-start-line="109" selection-end-line="109" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/Etape.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="70" column="4" lean-forward="true" selection-start-line="70" selection-start-column="4" selection-end-line="92" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/PresenceController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="5" lean-forward="true" selection-start-column="5" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/doctrine/Presence.orm.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="38" column="26" selection-start-line="38" selection-start-column="26" selection-end-line="38" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/API/V1/PresenceHandler.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="45" column="36" selection-start-line="45" selection-start-column="36" selection-end-line="45" selection-end-column="36" />
         </state>
       </provider>
     </entry>
@@ -985,33 +747,131 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="29" column="40" selection-start-line="29" selection-start-column="40" selection-end-line="29" selection-end-column="40" />
-          <folding>
-            <element signature="e#115#139#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.yaml">
+    <entry file="file://$PROJECT_DIR$/src/Security/UserVoter.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="613">
-          <caret line="181" column="62" selection-start-line="181" selection-start-column="62" selection-end-line="181" selection-end-column="62" />
-        </state>
+        <state relative-caret-position="-180" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Presence.php">
+    <entry file="file://$PROJECT_DIR$/src/EventListener/EntityListener.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1395">
-          <caret line="105" column="28" selection-start-line="105" selection-start-column="28" selection-end-line="105" selection-end-column="28" />
+        <state relative-caret-position="-78" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EventListener/CorsListener.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-257" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Command/ClosePresenceCommand.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="507">
+          <caret line="60" lean-forward="true" selection-start-line="60" selection-end-line="60" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/API/V1/ReportHandler.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="537">
-          <caret line="606" column="35" selection-start-line="606" selection-start-column="35" selection-end-line="606" selection-end-column="35" />
-          <folding>
-            <element signature="e#111#135#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="11805">
+          <caret line="792" column="26" lean-forward="true" selection-start-line="792" selection-start-column="26" selection-end-line="792" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/doctrine/Presence.orm.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="26" lean-forward="true" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/ProjectController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="492">
+          <caret line="55" column="40" selection-start-line="55" selection-start-column="20" selection-end-line="55" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/http-foundation/Request.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-778">
+          <caret line="30" column="6" selection-start-line="30" selection-start-column="6" selection-end-line="30" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Service/ProjectService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="606">
+          <caret line="58" column="32" selection-start-line="58" selection-start-column="32" selection-end-line="58" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/API/V1/ProjectHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-975">
+          <caret line="69" column="51" lean-forward="true" selection-start-line="69" selection-start-column="51" selection-end-line="69" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Position.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-540" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/API/V1/BaseHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="85" column="20" selection-start-line="85" selection-start-column="20" selection-end-line="85" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Presence.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-165">
+          <caret line="11" column="7" lean-forward="true" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/doctrine/PresenceEdited.orm.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="26" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/PresenceController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="50" column="44" selection-start-line="50" selection-start-column="20" selection-end-line="50" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="57" column="27" selection-start-line="57" selection-start-column="27" selection-end-line="57" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/API/V1/UserHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="86" selection-start-line="86" selection-end-line="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/PresenceEdited.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="44" column="17" selection-start-line="44" selection-start-column="12" selection-end-line="44" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/API/V1/PresenceHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="358">
+          <caret line="210" lean-forward="true" selection-start-line="210" selection-end-line="210" />
         </state>
       </provider>
     </entry>

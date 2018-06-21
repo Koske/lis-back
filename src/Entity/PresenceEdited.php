@@ -1,11 +1,17 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: dusan
+ * Date: 19.6.18.
+ * Time: 14.12
+ */
 
 namespace App\Entity;
 
 /**
- * Presence
+ * PresenceEdited
  */
-class Presence
+class PresenceEdited
 {
     /**
      * @var integer
@@ -23,40 +29,25 @@ class Presence
     private $end;
 
     /**
-     * @var boolean
+     * @var \DateTime
      */
-    private $closed;
+    private $originalStart;
 
     /**
-     * @var boolean
+     * @var \DateTime
      */
-    private $autoClosed;
+    private $originalEnd;
 
-    /**
-     * @var boolean
-     */
-    private $eightHours;
-
-    /**
-     * @var boolean
-     */
-    private $businessCheckOut;
-
-    /**
-     * @var integer
-     */
-    private $year;
-
-    /**
-     * @var integer
-     */
-    private $month;
 
     /**
      * @var \App\Entity\User
      */
     private $user;
 
+    /**
+     * @var \App\Entity\Presence
+     */
+    private $presence;
 
 
 
@@ -70,60 +61,15 @@ class Presence
         return $this->id;
     }
 
-    /**
-     * Set year
-     *
-     * @param integer $year
-     *
-     * @return Presence
-     */
-    public function setYear($year)
-    {
-        $this->year = $year;
 
-        return $this;
-    }
 
-    /**
-     * Get year
-     *
-     * @return integer
-     */
-    public function getYear()
-    {
-        return $this->year;
-    }
-
-    /**
-     * Set month
-     *
-     * @param integer $month
-     *
-     * @return Presence
-     */
-    public function setMonth($month)
-    {
-        $this->month = $month;
-
-        return $this;
-    }
-
-    /**
-     * Get month
-     *
-     * @return integer
-     */
-    public function getMonth()
-    {
-        return $this->month;
-    }
 
     /**
      * Set start
      *
      * @param \DateTime $start
      *
-     * @return Presence
+     * @return PresenceEdited
      */
     public function setStart($start)
     {
@@ -147,7 +93,7 @@ class Presence
      *
      * @param \DateTime $end
      *
-     * @return Presence
+     * @return PresenceEdited
      */
     public function setEnd($end)
     {
@@ -165,100 +111,80 @@ class Presence
     {
         return $this->end;
     }
+
+
+
     /**
-     * Set autoClosed
+     * Set originalStart
      *
-     * @param boolean $autoClosed
+     * @param \DateTime $originalStart
      *
-     * @return Presence
+     * @return PresenceEdited
      */
-    public function setAutoClosed($autoClosed)
+    public function setOriginalStart($originalStart)
     {
-        $this->autoClosed = $autoClosed;
+        $this->originalStart = $originalStart;
 
         return $this;
     }
 
     /**
-     * Get autoClosed
+     * Get originalStart
      *
-     * @return boolean
+     * @return \DateTime
      */
-    public function getAutoClosed()
+    public function getOriginalStart()
     {
-        return $this->autoClosed;
+        return $this->originalStart;
     }
 
     /**
-     * Set closed
+     * Set originalEnd
      *
-     * @param boolean $closed
+     * @param \DateTime $originalEnd
      *
-     * @return Presence
+     * @return PresenceEdited
      */
-    public function setClosed($closed)
+    public function setOriginalEnd($originalEnd)
     {
-        $this->closed = $closed;
+        $this->originalEnd = $originalEnd;
 
         return $this;
     }
 
     /**
-     * Get closed
+     * Get originalEnd
      *
-     * @return boolean
+     * @return \DateTime
      */
-    public function getClosed()
+    public function getOriginalEnd()
     {
-        return $this->closed;
+        return $this->originalEnd;
     }
 
+
     /**
-     * Set eightHours
+     * Set presence
      *
-     * @param boolean $eightHours
+     * @param \App\Entity\Presence $presence
      *
-     * @return Presence
+     * @return PresenceEdited
      */
-    public function setEightHours($eightHours)
+    public function setPresence(\App\Entity\Presence $presence = null)
     {
-        $this->eightHours = $eightHours;
+        $this->presence = $presence;
 
         return $this;
     }
 
     /**
-     * Get eightHours
+     * Get presence
      *
-     * @return boolean
+     * @return \App\Entity\Presence
      */
-    public function getEightHours()
+    public function getPresence()
     {
-        return $this->eightHours;
-    }
-
-    /**
-     * Set businessCheckOut
-     *
-     * @param boolean $businessCheckOut
-     *
-     * @return Presence
-     */
-    public function setBusinessCheckOut($businessCheckOut)
-    {
-        $this->businessCheckOut = $businessCheckOut;
-
-        return $this;
-    }
-
-    /**
-     * Get businessCheckOut
-     *
-     * @return boolean
-     */
-    public function getBusinessCheckOut()
-    {
-        return $this->businessCheckOut;
+        return $this->presence;
     }
 
     /**
@@ -266,7 +192,7 @@ class Presence
      *
      * @param \App\Entity\User $user
      *
-     * @return Presence
+     * @return PresenceEdited
      */
     public function setUser(\App\Entity\User $user = null)
     {
@@ -305,7 +231,7 @@ class Presence
      *
      * @param \DateTime $dateCreated
      *
-     * @return Presence
+     * @return PresenceEdited
      */
     public function setDateCreated($dateCreated)
     {
@@ -329,7 +255,7 @@ class Presence
      *
      * @param \DateTime $dateUpdated
      *
-     * @return Presence
+     * @return PresenceEdited
      */
     public function setDateUpdated($dateUpdated)
     {
@@ -353,7 +279,7 @@ class Presence
      *
      * @param boolean $deleted
      *
-     * @return Presence
+     * @return PresenceEdited
      */
     public function setDeleted($deleted)
     {

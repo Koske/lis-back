@@ -1,6 +1,6 @@
-App\Entity\Presence:
+App\Entity\PresenceEdited:
     type: entity
-    table: presence
+    table: presence_edited
 
     id:
         id:
@@ -10,18 +10,16 @@ App\Entity\Presence:
     fields:
         start:
             type: datetime
-            nullable: false
+            nullable: true
         end:
             type: datetime
             nullable: true
-        closed:
-            type: boolean
-            nullable: false
-            default: false
-        businessCheckOut:
-            type: boolean
-            nullable: false
-            default: false
+        originalStart:
+            type: datetime
+            nullable: true
+        originalEnd:
+            type: datetime
+            nullable: true
         dateCreated:
             type: datetime
             nullable: false
@@ -31,22 +29,14 @@ App\Entity\Presence:
         deleted:
             type: boolean
             nullable: true
-        year:
-            type: integer
-            nullable: true
-        month:
-            type: integer
-            nullable: true
-        eightHours:
-            type: boolean
-            nullable: false
-        autoClosed:
-            type: boolean
-            nullable: false
-
     manyToOne:
         user:
             targetEntity: User
             joinColumn:
                 name: user_id
+                referencedColumnName: id
+        presence:
+            targetEntity: Presence
+            joinColumn:
+                name: presence_id
                 referencedColumnName: id
