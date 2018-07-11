@@ -52,11 +52,7 @@ class PresenceHandler extends BaseHandler
         $presence->setClosed(false);
         $presence->setAutoClosed(false);
 
-        if ($params->business) {
-            $presence->setBusinessCheckOut(true);
-        } else {
-            $presence->setBusinessCheckOut(false);
-        }
+
 
         $this->em->persist($presence);
         $this->em->flush();
@@ -104,7 +100,11 @@ class PresenceHandler extends BaseHandler
         }
 
         $presence->setClosed(true);
-
+        if ($params->business) {
+            $presence->setBusinessCheckOut(true);
+        } else {
+            $presence->setBusinessCheckOut(false);
+        }
 
         $this->em->persist($presence);
         $this->em->flush();
@@ -151,7 +151,6 @@ class PresenceHandler extends BaseHandler
         $params = $this->getParams($request);
         $time = $params->time;
         $presenceId = $params->presence;
-        //odvojeno posalji id i start/end
         $type = $params->type;
 
         $presenceRep = $this->em->getRepository(Presence::class)->find($presenceId);

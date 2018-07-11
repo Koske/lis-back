@@ -55,4 +55,10 @@ class ParticipantController extends BaseController
 
         return $handler->getParticipantForTask($request);
     }
+    public function getProjectsForParticipantAction(Request $request)
+    {
+        $handler = $this->getHandler($request, HandlerType::Participant, null);
+
+        return $handler->getProjectsForParticipant($request);
+    }
 }

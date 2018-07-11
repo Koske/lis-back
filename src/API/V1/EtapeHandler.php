@@ -79,7 +79,6 @@ class EtapeHandler extends BaseHandler
 
     public function editEtape(Request $request){
         $params = $this->getParams($request);
-        var_dump($params);
         $etape = $this->em->getRepository(Etape::class)->find($params->etape->id);
         $etape->setName($params->etape->name);
         $etape->setDescription($params->etape->description);
@@ -91,6 +90,18 @@ class EtapeHandler extends BaseHandler
         $this->em->flush();
 
         return $this->getSuccessResponse();
+    }
+
+    public function getEtapeByProject(Request $request){
+        $params = $this->getParams($request);
+
+        $project = $this->em->getRepository(Project::class)->find($params->id);
+        $etapes = $this->em->getRepository(Etape::class)->findBy([
+            'project' => $project
+        ]);
+        return $this->getResponse([
+            'etapes' => $etapes
+        ]);
     }
 
 }

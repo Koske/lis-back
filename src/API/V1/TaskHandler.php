@@ -5,6 +5,7 @@ use App\Entity\Etape;
 use App\Entity\Participant;
 use App\Entity\Project;
 use App\Entity\Task;
+use App\Entity\User;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -44,17 +45,19 @@ class TaskHandler extends BaseHandler
         return $this->getSuccessResponse();
     }
 
-//    public function getTaskByEtape(Request $request){
-//        $params = $this->getParams($request);
-//
-//        $tasks = $this->em->getRepository(Task::class)->findBy(
-//            array('etape' => $this->em->getRepository(Etape::class)->find($params->etape_id))
-//        );
-//
-//        return $this->getResponse([
-//            'tasks' => $tasks
-//        ]);
-//    }
+    public function getTaskByEtape(Request $request){
+        $params = $this->getParams($request);
+        $etape = $this->em->getRepository(Etape::class)->find($params->etape_id);
+        $tasks = $this->em->getRepository(Task::class)->findBy(
+            [
+                'etape' => $etape
+            ]
+        );
+
+        return $this->getResponse([
+            'tasks' => $tasks
+        ]);
+    }
 
     public function getTaskById(Request $request){
         $params = $this->getParams($request);
@@ -84,6 +87,28 @@ class TaskHandler extends BaseHandler
         $this->em->flush();
 
         return $this->getSuccessResponse();
+    }
+
+    public function getTaskForParticipant(Request $request){
+        $params = $this->getParams($request);
+
+        $user = $this->em->getRepository(User::class)->find($params->userId);
+        $project = $this->em->getRepository(Project::class)->find($params->projectId);
+
+        $participant = $this->em->getRepository(Participant::class)->findBy([
+            'user' => $user,
+            'project' => $project
+        ])[0];
+
+        $tasks = $this->em->getRepository(Task::class)->findBy([
+            'participant' => $participant,
+            'project' => $project
+        ]);
+
+        return $this->getResponse([
+             $tasks
+        ]);
+
     }
 
 

@@ -37,4 +37,10 @@ class EtapeController extends BaseController
 
         return $handler->editEtape($request);
     }
+    public function getEtapeByProjectAction(Request $request){
+        $handler = $this->getHandler($request, HandlerType::Etape, null);
+
+
+        return $handler->getEtapeByProject($request);
+    }
 }

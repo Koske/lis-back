@@ -43,4 +43,18 @@ class TaskController extends BaseController
 
         return $handler->editTask($request);
     }
+    public function getTaskByEtapeAction(Request $request)
+    {
+        $handler = $this->getHandler($request, HandlerType::Task, null);
+
+
+        return $handler->getTaskByEtape($request);
+    }
+    public function getTaskForParticipantAction(Request $request)
+    {
+        $handler = $this->getHandler($request, HandlerType::Task, null);
+
+
+        return $handler->getTaskForParticipant($request);
+    }
 }

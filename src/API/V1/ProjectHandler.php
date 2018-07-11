@@ -5,6 +5,7 @@ namespace App\API\V1;
 
 use App\Entity\Project;
 use App\Entity\Etape;
+use App\Entity\User;
 use App\Model\ProjectFilter;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,14 +15,14 @@ class ProjectHandler extends BaseHandler
     public function createProject(Request $request){
 
         $params = $this->getParams($request);
-
-        if (!$params->name || !$params->description || !$params->dateStarted || !$params->estimatedDuration) {
+        $user = $this->em->getRepository(User::class)->find($params->user->id);
+        if (!$params->project->name || !$params->project->description || !$params->project->dateStarted || !$params->project->estimatedDuration || !$user) {
 
 
             return $this->getParameterMissingResponse();
         }
 
-        $this->container->get('app.project')->createProject($params->name, $params->description, $params->dateStarted, $params->estimatedDuration);
+        $this->container->get('app.project')->createProject($params->project->name, $params->project->description, $params->project->dateStarted, $params->project->estimatedDuration, $user);
 
         return $this->getSuccessResponse();
     }
@@ -42,7 +43,7 @@ class ProjectHandler extends BaseHandler
         $projectFilter = new ProjectFilter();
         $projectFilter->setPerPage($perPage);
         $projectFilter->setPage($page);
-        $projectFilter->setDeleted(0);
+        $projectFilter->setDeleted(false);
 
         $totalPages = 0;
         $projects = $elasticManager->getRepository(Project::class)->search($projectFilter);
@@ -88,7 +89,13 @@ class ProjectHandler extends BaseHandler
 
             return $this->getParameterMissingResponse();
         }
-        $this->container->get('app.project')->deleteProject($params->id);
+        $project = $this->em->getRepository(Project::class)->find(
+            $params->id
+        );
+        $project->setDeleted(true);
+        $project->setDateUpdated(new \DateTime());
+        $this->em->persist($project);
+        $this->em->flush();
 
         return $this->getSuccessResponse();
     }
@@ -116,7 +123,7 @@ class ProjectHandler extends BaseHandler
         $projectFilter = new ProjectFilter();
         $projectFilter->setPerPage($params->perPage);
         $projectFilter->setPage($params->page);
-        $projectFilter->setDeleted(0);
+        $projectFilter->setDeleted(false);
         $projectFilter->setFinished($params->finished);
         $projects = $elasticManager->getRepository(Project::class)->search($projectFilter);
         $totalPages = 0;
@@ -174,6 +181,20 @@ class ProjectHandler extends BaseHandler
             'page' => $page,
             'total_pages' => $totalPages
         ]);
+    }
+
+    public function getProjectById(Request $request){
+        $params = $this->getParams($request);
+
+        $project = $this->em->getRepository(Project::class)->find($params->id);
+        $startDate = $project->getStartDate()->format('Y-m-d');
+        $endDate = $project->getEstimatedDuration()->format('Y-m-d');
+        return $this->getResponse([
+            'project' => $project,
+            'start' => $startDate,
+            'end' => $endDate
+        ]);
+
     }
 
 

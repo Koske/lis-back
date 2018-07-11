@@ -31,7 +31,8 @@ class UserHandler extends BaseHandler implements IUserHandler
     {
         return $this->getResponse([
             'status' => 'ok',
-            'user' => $this->getUser()
+            'user' => $this->getUser(),
+            'role' => $this->getUser()->getRoles()
         ], Response::HTTP_OK);
     }
 
@@ -74,10 +75,14 @@ class UserHandler extends BaseHandler implements IUserHandler
             //return $this->getResponse(['error' => 'not exist'], Response::HTTP_FORBIDDEN);
         }
 
+        $userTypes = $this->em->getRepository(UserType::class)->findBy([ 'deleted' => false ]);
+        $positions = $this->em->getRepository(Position::class)->findBy([ 'deleted' => false ]);
+        $teams = $this->em->getRepository(Team::class)->findBy([ 'deleted' => false ]);
+
         return $this->getResponse([
-            'user_types' => $this->container->get('app.user.type')->getAll(),
-            'positions' => $this->container->get('app.position')->getAll(),
-            'teams' => $this->container->get('app.team')->getAll()
+            'user_types' => $userTypes,
+            'positions' => $positions,
+            'teams' => $teams
         ]);
     }
 
@@ -95,9 +100,14 @@ class UserHandler extends BaseHandler implements IUserHandler
         $userFilter->setPage($page);
         $userFilter->setDeleted(false);
 
+        $totalPages = 0;
 
         $users = $elasticManager->getRepository(User::class)->search($userFilter);
-        $totalPages = floor($users['total'] / $perPage + 1);
+        if($users['total']%$perPage == 0){
+            $totalPages = floor($users['total'] / $perPage);
+        }else {
+            $totalPages = floor($users['total'] / $perPage + 1);
+        }
 
         return $this->getResponse([
             'users' => $users['result'],

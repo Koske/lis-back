@@ -57,6 +57,27 @@ class Task
      */
     private $participant;
 
+    /**
+     * @var \App\Entity\Project
+     */
+    private $project;
+
+    /**
+     * @return Project
+     */
+    public function getProject(): Project
+    {
+        return $this->project;
+    }
+
+    /**
+     * @param Project $project
+     */
+    public function setProject(Project $project)
+    {
+        $this->project = $project;
+    }
+
 
     /**
      * Get id

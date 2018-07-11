@@ -5,3 +5,5 @@ App\Entity\User:
             expose: true
         name:
             expose: true
+        roles:
+            expose: true

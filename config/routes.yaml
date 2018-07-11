@@ -82,6 +82,10 @@ lis_newproject:
    path: /api/np
    controller: App\Controller\ProjectController:newProjectAction
 
+lis_getProjectById:
+   path: /api/getProjectById
+   controller: App\Controller\ProjectController:getProjectByIdAction
+
 lis_searchProjects:
    path: /api/searchProjects
    controller: App\Controller\ProjectController:searchProjectsAction
@@ -123,6 +127,10 @@ lis_getEtape:
    path: /api/ge
    controller: App\Controller\EtapeController:getEtapesAction
 
+lis_getEtapeByProject:
+   path: /api/getEtapeByProject
+   controller: App\Controller\EtapeController:getEtapeByProjectAction
+
 lis_editEtape:
    path: /api/editEtape
    controller: App\Controller\EtapeController:editEtapeAction
@@ -136,6 +144,11 @@ lis_getEtapeHours:
    controller: App\Controller\EtapeController:getEtapeHoursAction
 
 #Task
+
+lis_getTaskForParticipant:
+   path: /api/getTaskForParticipant
+   controller: App\Controller\TaskController:getTaskForParticipantAction
+
 lis_getTask:
    path: /api/gett
    controller: App\Controller\TaskController:getTaskAction
@@ -148,6 +161,10 @@ lis_getTaskById:
    path: /api/getTaskById
    controller: App\Controller\TaskController:getTaskByIdAction
 
+lis_getTaskByEtape:
+   path: /api/getTaskByEtape
+   controller: App\Controller\TaskController:getTaskByEtapeAction
+
 lis_editTask:
    path: /api/editTask
    controller: App\Controller\TaskController:editTaskAction
@@ -157,6 +174,10 @@ lis_editTask:
 lis_getParticipants:
    path: /api/getParticipants
    controller: App\Controller\ParticipantController:getParticipantAction
+
+lis_getProjectsForParticipant:
+   path: /api/getProjectsForParticipant
+   controller: App\Controller\ParticipantController:getProjectsForParticipantAction
 
 lis_getParticipantForTask:
    path: /api/getParticipantForTask

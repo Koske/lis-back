@@ -722,6 +722,50 @@ class ReportHandler extends BaseHandler
 
         }
 
+        $january = [];
+        $february = [];
+        $march = [];
+        $april = [];
+        $may = [];
+        $june = [];
+        $july = [];
+        $august = [];
+        $september = [];
+        $october = [];
+        $november = [];
+        $december = [];
+        $months = [];
+
+
+
+
+        array_push($months,
+            ['name'=>'January','inSend'=> $inJanSend,'outSend'=> $outJanSend,
+            'notFT'=>$notFTJan,'FT'=> $FTJan,'autoClose'=> $autoCloseJan],
+            ['name'=>'February','inSend'=>$inFebSend, 'outSend'=>$outFebSend,
+                'notFT'=>$notFTFeb,'FT'=> $FTFeb,'autoClose'=> $autoCloseFeb],
+            ['name'=> 'March','inSend'=>$inMarSend,'outSend'=> $outMarSend,
+                'notFT'=>$notFTMar,'FT'=>  $FTMar,'autoClose'=> $autoCloseMar],
+            ['name'=> 'April','inSend'=> $inAprSend,'outSend'=> $outAprSend,
+                'notFT'=>$notFTApr,'FT'=> $FTApr,'autoClose'=> $autoCloseApr],
+            ['name'=>  'May','inSend'=>$inMaySend,'outSend'=> $outMaySend,
+                'notFT'=>$notFTMay,'FT'=> $FTMay,'autoClose'=> $autoCloseMay],
+            ['name'=> 'June','inSend'=>$inJunSend,'outSend'=> $outJunSend,
+                'notFT'=>$notFTJun,'FT'=> $FTJun,'autoClose'=> $autoCloseJun],
+            ['name'=> 'July','inSend'=>$inJulSend,'outSend'=> $outJulSend,
+                'notFT'=>$notFTJul, 'FT'=>$FTJul, 'autoClose'=>$autoCloseJul],
+            ['name'=>  'August','inSend'=>$inAugSend,'outSend'=> $outAugSend,
+                'notFT'=>$notFTAug, 'FT'=>$FTAug,'autoClose'=> $autoCloseAug],
+            ['name'=>  'September','inSend'=>$inSepSend,'outSend'=> $outSepSend,
+                'notFT'=>$notFTSep, 'FT'=>$FTSep, 'autoClose'=>$autoCloseSep],
+            ['name'=>  'October','inSend'=>$inOctSend,'outSend'=> $outOctSend,
+                'notFT'=>$notFTOct,'FT'=> $FTOct,'autoClose'=> $autoCloseOct],
+            ['name'=>  'November','inSend'=>$inNovSend,'outSend'=> $outNovSend,
+                'notFT'=>$notFTNov,'FT'=> $FTNov,'autoClose'=> $autoCloseNov],
+            ['name'=> 'December','inSend'=>$inDecSend,'outSend'=> $outDecSend,
+                'notFT'=>$notFTDec, 'FT'=>$FTDec,'autoClose'=> $autoCloseDec]
+        );
+
 
 
 
@@ -733,77 +777,7 @@ class ReportHandler extends BaseHandler
             'user' => $user,
             'presence' => $presence,
 
-            'inJanSend' => $inJanSend,
-            'outJanSend' => $outJanSend,
-            'notFTJan' => $notFTJan,
-            'FTJan' => $FTJan,
-            'autoCloseJan' => $autoCloseJan,
-
-            'inFebSend' => $inFebSend,
-            'outFebSend' => $outFebSend,
-            'notFTFeb' => $notFTFeb,
-            'FTFeb' => $FTFeb,
-            'autoCloseFeb' => $autoCloseFeb,
-
-            'inMarSend' => $inMarSend,
-            'outMarSend' => $outMarSend,
-            'notFTMar' => $notFTMar,
-            'FTMar' => $FTMar,
-            'autoCloseMar' => $autoCloseMar,
-
-            'inAprSend' => $inAprSend,
-            'outAprSend' => $outAprSend,
-            'notFTApr' => $notFTApr,
-            'FTApr' => $FTApr,
-            'autoCloseApr' => $autoCloseApr,
-
-            'inMaySend' => $inMaySend,
-            'outMaySend' => $outMaySend,
-            'notFTMay' => $notFTMay,
-            'FTMay' => $FTMay,
-            'autoCloseMay' => $autoCloseMay,
-
-            'inJunSend' => $inJunSend,
-            'outJunSend' => $outJunSend,
-            'notFTJun' => $notFTJun,
-            'FTJun' => $FTJun,
-            'autoCloseJun' => $autoCloseJun,
-
-            'inJulSend' => $inJulSend,
-            'outJulSend' => $outJulSend,
-            'notFTJul' => $notFTJul,
-            'FTJul' => $FTJul,
-            'autoCloseJul' => $autoCloseJul,
-
-            'inAugSend' => $inAugSend,
-            'outAugSend' => $outAugSend,
-            'notFTAug' => $notFTAug,
-            'FTAug' => $FTAug,
-            'autoCloseAug' => $autoCloseAug,
-
-            'inSepSend' => $inSepSend,
-            'outSepSend' => $outSepSend,
-            'notFTSep' => $notFTSep,
-            'FTSep' => $FTSep,
-            'autoCloseSep' => $autoCloseSep,
-
-            'inOctSend' => $inOctSend,
-            'outOctSend' => $outOctSend,
-            'notFTOct' => $notFTOct,
-            'FTOct' => $FTOct,
-            'autoCloseOct' => $autoCloseOct,
-
-            'inNovSend' => $inNovSend,
-            'outNovSend' => $outNovSend,
-            'notFTNov' => $notFTNov,
-            'FTNov' => $FTNov,
-            'autoCloseNov' => $autoCloseNov,
-
-            'inDecSend' => $inDecSend,
-            'outDecSend' => $outDecSend,
-            'notFTDec' => $notFTDec,
-            'FTDec' => $FTDec,
-            'autoCloseDec' => $autoCloseDec
+            'months' => $months
         ]);
     }
 

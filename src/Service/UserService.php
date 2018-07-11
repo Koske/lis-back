@@ -40,6 +40,7 @@ class UserService
         $user->setPosition($position);
         $user->setTeam($team);
         $user->setEmail($email);
+        $user->setEnabled(true);
         $user->setPlainPassword($password);
         $user->setDeleted(false);
         $this->em->persist($user);

@@ -20,7 +20,7 @@ App\Entity\Presence:
             default: false
         businessCheckOut:
             type: boolean
-            nullable: false
+            nullable: true
             default: false
         dateCreated:
             type: datetime

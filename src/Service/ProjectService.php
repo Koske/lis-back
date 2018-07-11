@@ -15,7 +15,7 @@ class ProjectService
         $this->em = $em;
     }
 
-    public function createProject($name, $description, $dateStarted, $estimatedDuration){
+    public function createProject($name, $description, $dateStarted, $estimatedDuration, $user){
         $project = new Project();
         $project->setDateCreated(new \DateTime());
         $project->setName($name);
@@ -24,8 +24,10 @@ class ProjectService
         $project->setStartDate(new \DateTime($dateStarted));
         $project->setEstimatedDuration(new \DateTime($estimatedDuration));
         $project->setFinished(false);
+        $project->setUserCreated($user);
         $project->setDateCreated(new \DateTime());
         $project->setDateUpdated(new \DateTime());
+
         $this->em->persist($project);
         $this->em->flush();
 
@@ -51,15 +53,5 @@ class ProjectService
         return true;
     }
 
-    public function deleteProject($id){
-        $project = $this->em->getRepository(Project::class)->find(
-            $id
-        );
-        $project->setDeleted(true);
-        $project->setDateUpdated(new \DateTime());
-        $this->em->persist($project);
-        $this->em->flush();
 
-        return true;
-    }
 }

@@ -43,3 +43,8 @@ App\Entity\Task:
             joinColumn:
                 name: etape_id
                 referencedColumnName: id
+        project:
+            targetEntity: Project
+            joinColumn:
+                name: project_id
+                referencedColumnName: id

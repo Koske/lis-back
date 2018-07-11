@@ -20,10 +20,10 @@ class UserRepository extends Repository
         if($userFilter->getSearchTerm() !=null && $userFilter->getSearchTerm() != '')
         {
             $query = new\Elastica\Query\MultiMatch();
-            $query->setFuzziness(0.7);
+            $query->setFuzziness(2);
             $query->setQuery($userFilter->getSearchTerm());
             $query->setFields(['firstName', 'lastName']);
-            $query->setMinimumShouldMatch('80%');
+            $query->setMinimumShouldMatch('50%');
             $boolQuery->addMust($query);
 
 

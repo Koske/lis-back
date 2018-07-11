@@ -29,7 +29,7 @@ class ParticipantHandler extends BaseHandler
         $project = $this->em->getRepository(Project::class)->find($project_id);
         $participant = $this->em->getRepository(Participant::class)->findBy(array(
             'project'=>$project,
-            'deleted'=> null));
+            'deleted'=> false));
 
 
 
@@ -45,10 +45,11 @@ class ParticipantHandler extends BaseHandler
     {
         $params = $this->getParams($request);
 
+        $project = $this->em->getRepository(Project::class)->find($params->project_id);
 
         $participants = $this->em->getRepository(Participant::class)->findBy(array(
-            'project' => $params->project_id,
-            'deleted' => null
+            'project' => $project,
+            'deleted' => false
         ));
 
         $participantIds = [];
@@ -98,19 +99,22 @@ class ParticipantHandler extends BaseHandler
     public function addParticipant(Request $request){
         $params = $this->getParams($request);
 
-        $participant = new Participant();
-        $participant->setProject($this->em->getRepository(Project::class)->find($params->project_id));
-        $participant->setUser($this->em->getRepository(User::class)->find($params->id));
-        $participant->setParticipantType($this->em->getRepository(ParticipantType::class)->find($params->participant_type));
+        $project = $this->em->getRepository(Project::class)->find($params->project_id);
+        $user = $this->em->getRepository(User::class)->find($params->id);
         $search = $this->em->getRepository(Participant::class)->findBy(
-            array('project'=> $params->project_id,
-                  'user'=>$params->id));
+            array('project'=> $project,
+                  'user'=> $user));
         if($search) {
-            $search[0]->setDeleted(null);
             $search[0]->setParticipantType($this->em->getRepository(ParticipantType::class)->find($params->participant_type));
             $this->em->persist($search[0]);
             $this->em->flush();
         }else{
+            $participant = new Participant();
+            $participant->setProject($project);
+            $participant->setUser($user);
+            $participant->setParticipantType($this->em->getRepository(ParticipantType::class)->find($params->participant_type));
+            $participant->setDeleted(false);
+
             $this->em->persist($participant);
             $this->em->flush();
         }
@@ -122,10 +126,9 @@ class ParticipantHandler extends BaseHandler
         $params = $this->getParams($request);
 
         $participant = $this->em->getRepository(Participant::class)->findBy(array(
-            'user' => $params->id,
+            'id' => $params->id,
             'project' => $params->project_id
         ));
-
         $this->em->persist($participant[0]->setDeleted(true));
         $this->em->flush();
 
@@ -170,6 +173,26 @@ class ParticipantHandler extends BaseHandler
 
         return $this->getResponse([
             'participant' => $participant
+        ]);
+    }
+
+    public function getProjectsForParticipant(Request $request){
+        $params = $this->getParams($request);
+
+        $user = $this->em->getRepository(User::class)->find($params->userId);
+        $participant = $this->em->getRepository(Participant::class)->findBy([
+            'user' => $user,
+            'deleted' => false
+        ]);
+        $projects = [];
+        if($participant) {
+            foreach ($participant as $i) {
+                array_push($projects, $i->getProject());
+            }
+        }
+
+        return $this->getResponse([
+            'projects' => $projects
         ]);
     }
 }

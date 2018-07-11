@@ -16,9 +16,9 @@ class ProjectRepository extends Repository
         if($projectFilter->getSearchTerm() !=null && $projectFilter->getSearchTerm() != '')
         {
             $querySearch = new\Elastica\Query\MultiMatch();
-            $querySearch->setFuzziness(0.9);
+            $querySearch->setFuzziness(2);
             $querySearch->setQuery($projectFilter->getSearchTerm());
-            $querySearch->setFields(['name', 'description']);
+            $querySearch->setFields(['name']);
             $querySearch->setMinimumShouldMatch('50%');
             $boolQuery->addMust($querySearch);
 

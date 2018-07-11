@@ -18,14 +18,17 @@ class TaskService
 
     public function createTask($id, $name, $description, $dateStarted, $hour, $participant){
         $etape = $this->em->getRepository(Etape::class)->find($id);
+        $project = $etape->getProject();
         $participantObj = $this->em->getRepository(Participant::class)->find($participant);
 
         $task = new Task();
         $task->setName($name);
+        $task->setProject($project);
         $task->setDescription($description);
         $task->setDateCreated(new \DateTime());
         $task->setStart(new \DateTime($dateStarted));
         $task->setHour($hour);
+        $task->setDeleted(false);
         $task->setEtape($etape);
 
         $task->setParticipant($participantObj);
