@@ -106,6 +106,7 @@ class ParticipantHandler extends BaseHandler
                   'user'=> $user));
         if($search) {
             $search[0]->setParticipantType($this->em->getRepository(ParticipantType::class)->find($params->participant_type));
+            $search[0]->setDeleted(false);
             $this->em->persist($search[0]);
             $this->em->flush();
         }else{
@@ -124,12 +125,13 @@ class ParticipantHandler extends BaseHandler
 
     public function removeParticipant(Request $request){
         $params = $this->getParams($request);
-
+        $project = $this->em->getRepository(Project::class)->find($params->project_id);
         $participant = $this->em->getRepository(Participant::class)->findBy(array(
             'id' => $params->id,
-            'project' => $params->project_id
+            'project' => $project
         ));
-        $this->em->persist($participant[0]->setDeleted(true));
+        $participant[0]->setDeleted(true);
+        $this->em->persist($participant[0]);
         $this->em->flush();
 
 
@@ -146,7 +148,7 @@ class ParticipantHandler extends BaseHandler
         $project = $etape->getProject();
         $participants = $this->em->getRepository(Participant::class)->findBy(
             array('project' => $project,
-                  'deleted' => null)
+                  'deleted' => false)
         );
 
         return $this->getResponse([

@@ -27,6 +27,48 @@ class BusinessClient
      */
     private $phone_number;
 
+    /**
+     * @return City
+     */
+    public function getCity(): City
+    {
+        return $this->city;
+    }
+
+    /**
+     * @param City $city
+     */
+    public function setCity(City $city)
+    {
+        $this->city = $city;
+    }
+
+    /**
+     * @return Account
+     */
+    public function getAccount(): Account
+    {
+        return $this->account;
+    }
+
+    /**
+     * @param Account $account
+     */
+    public function setAccount(Account $account)
+    {
+        $this->account = $account;
+    }
+
+    /**
+     * @var \App\Entity\City
+     */
+    private $city;
+
+    /**
+     * @var \App\Entity\Account
+     */
+    private $account;
+
 
     /**
      * Get id

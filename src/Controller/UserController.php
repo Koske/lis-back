@@ -94,4 +94,10 @@ class UserController extends BaseController
         return $handler->getDeleteUser($request);
 
     }
+
+    public function getAllUsersAction(Request $request){
+        $handler = $this->getHandler($request, HandlerType::User);
+
+        return $handler->getAllUsers($request);
+    }
 }

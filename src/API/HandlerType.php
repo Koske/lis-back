@@ -18,4 +18,13 @@ abstract class HandlerType
     const Task = 5;
     const Participant = 6;
     const Report = 7;
+    const Team = 8;
+    const Salary = 9;
+    const BusinessClient = 10;
+    const Bonus = 11;
+    const DaysOff = 12;
+    const ProjectType = 13;
+    const ParticipantType = 14;
+    const UserType = 15;
+    const Position = 16;
 }

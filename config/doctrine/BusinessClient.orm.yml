@@ -19,3 +19,14 @@ App\Entity\BusinessClient:
             type: string
             lenght: 255
             nullable: true
+    manyToOne:
+         city:
+            targetEntity: City
+            joinColumn:
+                name: city_id
+                referencedColumnName: id
+         account:
+            targetEntity: Account
+            joinColumn:
+                name: account_id
+                referencedColumnName: id

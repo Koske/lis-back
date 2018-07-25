@@ -10,3 +10,7 @@ App\Entity\Country:
             type: string
             lenght: 255
             nullable: true
+        code:
+            type: string
+            length: 255
+            nullable: true

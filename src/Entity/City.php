@@ -27,10 +27,7 @@ class City
      */
     private $country;
 
-    /**
-     * @var \App\Entity\BusinessClient
-     */
-    private $businessClient;
+
 
 
     /**
@@ -115,27 +112,4 @@ class City
         return $this->country;
     }
 
-    /**
-     * Set businessClient
-     *
-     * @param \App\Entity\BusinessClient $businessClient
-     *
-     * @return City
-     */
-    public function setBusinessClient(\App\Entity\BusinessClient $businessClient = null)
-    {
-        $this->businessClient = $businessClient;
-
-        return $this;
-    }
-
-    /**
-     * Get businessClient
-     *
-     * @return \App\Entity\BusinessClient
-     */
-    public function getBusinessClient()
-    {
-        return $this->businessClient;
-    }
 }

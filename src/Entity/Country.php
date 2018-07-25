@@ -17,6 +17,27 @@ class Country
      */
     private $name;
 
+    /**
+     * @var string
+     */
+    private $code;
+
+    /**
+     * @return string
+     */
+    public function getCode(): string
+    {
+        return $this->code;
+    }
+
+    /**
+     * @param string $code
+     */
+    public function setCode(string $code)
+    {
+        $this->code = $code;
+    }
+
 
     /**
      * Get id

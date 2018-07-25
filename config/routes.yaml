@@ -48,6 +48,9 @@ delete_users:
     path: /api/user/delete
     controller: App\Controller\UserController::getDeleteUserAction
 
+lis_getAllUsers:
+    path: /api/getAllUsers
+    controller: App\Controller\UserController::getAllUsersAction
 
 #Presence
 
@@ -169,6 +172,10 @@ lis_editTask:
    path: /api/editTask
    controller: App\Controller\TaskController:editTaskAction
 
+lis_removeTask:
+   path: /api/removeTask
+   controller: App\Controller\TaskController:removeTaskAction
+
 #Participant
 
 lis_getParticipants:
@@ -213,3 +220,178 @@ lis_getInitialInfo:
 lis_getInfoForMonth:
    path: /api/getInfoForMonth
    controller: App\Controller\ReportController:getInfoForMonthAction
+
+#Team
+
+lis_newTeam:
+  path: /api/newTeam
+  controller: App\Controller\TeamController:newTeamAction
+
+lis_getTeams:
+  path: /api/getTeams
+  controller: App\Controller\TeamController:getTeamsAction
+
+lis_removeTeam:
+  path: /api/removeTeam
+  controller: App\Controller\TeamController:removeTeamAction
+
+lis_getTeamById:
+  path: /api/getTeamById
+  controller: App\Controller\TeamController:getTeamByIdAction
+
+lis_editTeam:
+  path: /api/editTeam
+  controller: App\Controller\TeamController:editTeamAction
+
+lis_getUsersForTeam:
+  path: /api/getUsersForTeam
+  controller: App\Controller\TeamController:getUsersForTeamAction
+
+lis_removeFromTeam:
+  path: /api/removeFromTeam
+  controller: App\Controller\TeamController:removeFromTeamAction
+
+
+#Salary
+
+lis_newSalary:
+  path: /api/newSalary
+  controller: App\Controller\SalaryController:newSalaryAction
+
+lis_getSalaries:
+  path: /api/getSalaries
+  controller: App\Controller\SalaryController:getSalariesAction
+
+lis_removeSalary:
+  path: /api/removeSalary
+  controller: App\Controller\SalaryController:removeSalaryAction
+
+lis_getSalaryById:
+  path: /api/getSalaryById
+  controller: App\Controller\SalaryController:getSalaryByIdAction
+
+lis_editSalary:
+  path: /api/editSalary
+  controller: App\Controller\SalaryController:editSalaryAction
+
+#Business Client
+
+lis_newBusinessClient:
+  path: /api/newBusinessClient
+  controller: App\Controller\BusinessClientController:newBusinessClientAction
+
+lis_getBusinessClients:
+  path: /api/getBusinessClients
+  controller: App\Controller\BusinessClientController:getBusinessClientsAction
+
+lis_getBusinessClientById:
+  path: /api/getBusinessClientById
+  controller: App\Controller\BusinessClientController:getBusinessClientByIdAction
+
+lis_editBusinessClient:
+  path: /api/editBusinessClient
+  controller: App\Controller\BusinessClientController:editBusinessClientAction
+
+lis_getCountries:
+  path: /api/getCountries
+  controller: App\Controller\BusinessClientController:getCountriesAction
+
+#Bonus
+
+lis_newBonus:
+  path: /api/newBonus
+  controller: App\Controller\BonusController:newBonusAction
+
+lis_getBonuses:
+  path: /api/getBonuses
+  controller: App\Controller\BonusController:getBonusesAction
+
+lis_removeBonus:
+  path: /api/removeBonus
+  controller: App\Controller\BonusController:removeBonusAction
+
+lis_getBonusById:
+  path: /api/getBonusById
+  controller: App\Controller\BonusController:getBonusByIdAction
+
+lis_editBonus:
+  path: /api/editBonus
+  controller: App\Controller\BonusController:editBonusAction
+
+#Days Off
+
+lis_newDaysOff:
+  path: /api/newDaysOff
+  controller: App\Controller\DaysOffController:newDaysOffAction
+
+lis_getDaysOff:
+  path: /api/getDaysOff
+  controller: App\Controller\DaysOffController:getDaysOffAction
+
+lis_removeDaysOff:
+  path: /api/removeDaysOff
+  controller: App\Controller\DaysOffController:removeDaysOffAction
+
+lis_editDaysOff:
+  path: /api/editDaysOff
+  controller: App\Controller\DaysOffController:editDaysOffAction
+
+lis_getDayOffById:
+  path: /api/getDayOffById
+  controller: App\Controller\DaysOffController:getDayOffByIdAction
+
+#Project Type
+
+lis_newProjectType:
+  path: /api/newProjectType
+  controller: App\Controller\ProjectTypeController:newProjectTypeAction
+
+lis_getProjectTypes:
+  path: /api/getProjectTypes
+  controller: App\Controller\ProjectTypeController:getProjectTypesAction
+
+lis_removeProjectType:
+  path: /api/removeProjectType
+  controller: App\Controller\ProjectTypeController:removeProjectTypeAction
+
+#Participant Type
+
+lis_newParticipantType:
+  path: /api/newParticipantType
+  controller: App\Controller\ParticipantTypeController:newParticipantTypeAction
+
+lis_removeParticipantType:
+  path: /api/removeParticipantType
+  controller: App\Controller\ParticipantTypeController:removeParticipantTypeAction
+
+lis_getAllParticipantTypes:
+  path: /api/getAllParticipantTypes
+  controller: App\Controller\ParticipantTypeController:getAllParticipantTypesAction
+
+#User Type
+
+lis_newUserType:
+  path: /api/newUserType
+  controller: App\Controller\UserTypeController:newUserTypeAction
+
+lis_getUserTypes:
+  path: /api/getUserTypes
+  controller: App\Controller\UserTypeController:getUserTypesAction
+
+lis_removeUserTypes:
+  path: /api/removeUserTypes
+  controller: App\Controller\UserTypeController:removeUserTypesAction
+
+#Position
+
+lis_newPosition:
+  path: /api/newPosition
+  controller: App\Controller\PositionController:newPositionAction
+
+lis_getPositions:
+  path: /api/getPositions
+  controller: App\Controller\PositionController:getPositionsAction
+
+lis_removePosition:
+  path: /api/removePosition
+  controller: App\Controller\PositionController:removePositionAction

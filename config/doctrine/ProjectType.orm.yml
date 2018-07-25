@@ -24,3 +24,4 @@ App\Entity\ProjectType:
         deleted:
             type: boolean
             nullable: false
+

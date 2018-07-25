@@ -13,7 +13,7 @@ class Bonus
     private $id;
 
     /**
-     * @var string
+     * @var double
      */
     private $value;
 
@@ -56,7 +56,7 @@ class Bonus
     /**
      * Set value
      *
-     * @param string $value
+     * @param double $value
      *
      * @return Bonus
      */
@@ -70,7 +70,7 @@ class Bonus
     /**
      * Get value
      *
-     * @return string
+     * @return double
      */
     public function getValue()
     {

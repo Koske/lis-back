@@ -232,4 +232,14 @@ class UserHandler extends BaseHandler implements IUserHandler
 
         return $this->getResponse(['status' => 'ok'], Response::HTTP_OK);
     }
+
+    public function getAllUsers(){
+        $users = $this->em->getRepository(User::class)->findBy([
+            'deleted' => false
+        ]);
+
+        return $this->getResponse([
+            'users' => $users
+        ]);
+    }
 }

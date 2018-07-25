@@ -22,10 +22,6 @@ class Account
      */
     private $accountNumber;
 
-    /**
-     * @var \App\Entity\BusinessClient
-     */
-    private $businessClient;
 
 
     /**
@@ -86,27 +82,4 @@ class Account
         return $this->accountNumber;
     }
 
-    /**
-     * Set businessClient
-     *
-     * @param \App\Entity\BusinessClient $businessClient
-     *
-     * @return Account
-     */
-    public function setBusinessClient(\App\Entity\BusinessClient $businessClient = null)
-    {
-        $this->businessClient = $businessClient;
-
-        return $this;
-    }
-
-    /**
-     * Get businessClient
-     *
-     * @return \App\Entity\BusinessClient
-     */
-    public function getBusinessClient()
-    {
-        return $this->businessClient;
-    }
 }

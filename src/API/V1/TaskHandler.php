@@ -50,7 +50,8 @@ class TaskHandler extends BaseHandler
         $etape = $this->em->getRepository(Etape::class)->find($params->etape_id);
         $tasks = $this->em->getRepository(Task::class)->findBy(
             [
-                'etape' => $etape
+                'etape' => $etape,
+                'deleted' => false
             ]
         );
 
@@ -65,7 +66,8 @@ class TaskHandler extends BaseHandler
         $task = $this->em->getRepository(Task::class)->find($params->id);
 
         return $this->getResponse([
-           'task' => $task
+           'task' => $task,
+            'deleted' => false
         ]);
     }
 
@@ -102,12 +104,25 @@ class TaskHandler extends BaseHandler
 
         $tasks = $this->em->getRepository(Task::class)->findBy([
             'participant' => $participant,
-            'project' => $project
+            'project' => $project,
+            'deleted' => false
         ]);
 
         return $this->getResponse([
-             $tasks
+             'tasks' =>$tasks
         ]);
+
+    }
+
+    public function removeTask(Request $request){
+        $params = $this->getParams($request);
+
+        $task = $this->em->getRepository(Task::class)->find($params->id);
+        $task->setDeleted(true);
+        $this->em->persist($task);
+        $this->em->flush();
+
+        return $this->getSuccessResponse();
 
     }
 

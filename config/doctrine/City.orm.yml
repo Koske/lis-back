@@ -20,8 +20,3 @@ App\Entity\City:
             joinColumn:
                 name: country_id
                 referencedColumnName: id
-         businessClient:
-            targetEntity: BusinessClient
-            joinColumn:
-                name: business_client_id
-                referencedColumnName: id

@@ -10,13 +10,22 @@ namespace App\API\Factory;
 
 
 use App\API\HandlerType;
+use App\API\V1\BonusHandler;
+use App\API\V1\BusinessClientHandler;
+use App\API\V1\DaysOffHandler;
 use App\API\V1\EtapeHandler;
 use App\API\V1\ParticipantHandler;
+use App\API\V1\ParticipantTypeHandler;
+use App\API\V1\PositionHandler;
 use App\API\V1\PresenceHandler;
 use App\API\V1\ProjectHandler;
+use App\API\V1\ProjectTypeHandler;
 use App\API\V1\ReportHandler;
+use App\API\V1\SalaryHandler;
 use App\API\V1\TaskHandler;
+use App\API\V1\TeamHandler;
 use App\API\V1\UserHandler;
+use App\API\V1\UserTypeHandler;
 
 class ApiHandlerFactoryV1
 {
@@ -51,6 +60,42 @@ class ApiHandlerFactoryV1
 
         if($type == HandlerType::Report) {
             return new ReportHandler($em, $container, $logger);
+        }
+
+        if($type == HandlerType::Team) {
+            return new TeamHandler($em, $container, $logger);
+        }
+
+        if($type == HandlerType::Salary) {
+            return new SalaryHandler($em, $container, $logger);
+        }
+
+        if($type == HandlerType::BusinessClient) {
+            return new BusinessClientHandler($em, $container, $logger);
+        }
+
+        if($type == HandlerType::Bonus) {
+            return new BonusHandler($em, $container, $logger);
+        }
+
+        if($type == HandlerType::DaysOff) {
+            return new DaysOffHandler($em, $container, $logger);
+        }
+
+        if($type == HandlerType::ProjectType) {
+            return new ProjectTypeHandler($em, $container, $logger);
+        }
+
+        if($type == HandlerType::ParticipantType) {
+            return new ParticipantTypeHandler($em, $container, $logger);
+        }
+
+        if($type == HandlerType::UserType) {
+            return new UserTypeHandler($em, $container, $logger);
+        }
+
+        if($type == HandlerType::Position) {
+            return new PositionHandler($em, $container, $logger);
         }
         return null;
     }

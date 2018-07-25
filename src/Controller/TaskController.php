@@ -57,4 +57,11 @@ class TaskController extends BaseController
 
         return $handler->getTaskForParticipant($request);
     }
+    public function removeTaskAction(Request $request)
+    {
+        $handler = $this->getHandler($request, HandlerType::Task, null);
+
+
+        return $handler->removeTask($request);
+    }
 }
