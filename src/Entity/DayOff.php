@@ -38,9 +38,59 @@ class DayOff
     private $deleted;
 
     /**
+     * @var string
+     */
+    private $reasonDeclined;
+
+    /**
+     * @var string
+     */
+    private $status;
+
+
+
+
+
+    /**
+     * @return string
+     */
+    public function getStatus(): string
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param string $status
+     */
+    public function setStatus(string $status)
+    {
+        $this->status = $status;
+    }
+
+    /**
      * @var \App\Entity\User
      */
     private $user;
+
+    /**
+     * @return string
+     */
+    public function getReasonDeclined(): string
+    {
+        return $this->reasonDeclined;
+    }
+
+    /**
+     * @param string $reasonDeclined
+     */
+    public function setReasonDeclined(string $reasonDeclined)
+    {
+        $this->reasonDeclined = $reasonDeclined;
+    }
+
+
+
+
 
 
     /**

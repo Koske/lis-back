@@ -5,6 +5,7 @@ namespace App\API\V1;
 
 use App\Entity\Project;
 use App\Entity\Etape;
+use App\Entity\ProjectType;
 use App\Entity\User;
 use App\Model\ProjectFilter;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,13 +17,14 @@ class ProjectHandler extends BaseHandler
 
         $params = $this->getParams($request);
         $user = $this->em->getRepository(User::class)->find($params->user->id);
-        if (!$params->project->name || !$params->project->description || !$params->project->dateStarted || !$params->project->estimatedDuration || !$user) {
+        $projectType = $this->em->getRepository(ProjectType::class)->find($params->project->projectType);
+        if (!$params->project->name || !$params->project->description || !$params->project->dateStarted || !$params->project->estimatedDuration || !$user || !$projectType) {
 
 
             return $this->getParameterMissingResponse();
         }
 
-        $this->container->get('app.project')->createProject($params->project->name, $params->project->description, $params->project->dateStarted, $params->project->estimatedDuration, $user);
+        $this->container->get('app.project')->createProject($params->project->name, $params->project->description, $params->project->dateStarted, $params->project->estimatedDuration, $user, $projectType);
 
         return $this->getSuccessResponse();
     }
@@ -70,14 +72,15 @@ class ProjectHandler extends BaseHandler
 
     public function editProjects(Request $request){
         $params = $this->getParams($request);
+        $projectType = $this->em->getRepository(ProjectType::class)->find($params->projectType);
 
-        if (!$params->id||!$params->name || !$params->description || !$params->dateStarted || !$params->estimatedDuration) {
+        if (!$params->id||!$params->name || !$params->description || !$params->dateStarted || !$params->estimatedDuration || !$projectType) {
 
 
             return $this->getParameterMissingResponse();
         }
 
-        $this->container->get('app.project')->editProject($params->id, $params->name, $params->description, $params->dateStarted, $params->estimatedDuration);
+        $this->container->get('app.project')->editProject($params->id, $params->name, $params->description, $params->dateStarted, $params->estimatedDuration, $projectType);
 
         return $this->getSuccessResponse();
     }

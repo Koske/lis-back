@@ -320,6 +320,14 @@ lis_editBonus:
 
 #Days Off
 
+lis_getDaysOffStats:
+  path: /api/getDaysOffStats
+  controller: App\Controller\DaysOffController:getDaysOffStatsAction
+
+lis_getDaysOffStatsByUser:
+  path: /api/getDaysOffStatsByUser
+  controller: App\Controller\DaysOffController:getDaysOffStatsByUserAction
+
 lis_newDaysOff:
   path: /api/newDaysOff
   controller: App\Controller\DaysOffController:newDaysOffAction
@@ -327,6 +335,10 @@ lis_newDaysOff:
 lis_getDaysOff:
   path: /api/getDaysOff
   controller: App\Controller\DaysOffController:getDaysOffAction
+
+lis_getDaysOffUser:
+  path: /api/getDaysOffUser
+  controller: App\Controller\DaysOffController:getDaysOffUserAction
 
 lis_removeDaysOff:
   path: /api/removeDaysOff
@@ -339,6 +351,10 @@ lis_editDaysOff:
 lis_getDayOffById:
   path: /api/getDayOffById
   controller: App\Controller\DaysOffController:getDayOffByIdAction
+
+lis_decisionDaysOff:
+  path: /api/decideDaysOff
+  controller: App\Controller\DaysOffController:decisionDaysOffAction
 
 #Project Type
 
@@ -395,3 +411,7 @@ lis_getPositions:
 lis_removePosition:
   path: /api/removePosition
   controller: App\Controller\PositionController:removePositionAction
+
+lis_decideDaysOff:
+  path: /api/decideDaysOff
+  controller: App\Controller\PositionController:decideDaysOffAction

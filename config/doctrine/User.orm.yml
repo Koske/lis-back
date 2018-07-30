@@ -19,7 +19,6 @@ App\Entity\User:
         deleted:
             type: boolean
             nullable: false
-
     manyToOne:
         userType:
             targetEntity: UserType
@@ -37,7 +36,6 @@ App\Entity\User:
             joinColumn:
                 name: team_id
                 referencedColumnName: id
-
     manyToMany:
         userRoles:
             targetEntity: Role

@@ -1,0 +1,22 @@
+App\Entity\DaysOffStats:
+    type: entity
+    table: days_off_stats
+
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+
+    fields:
+        daysOff:
+            type: integer
+            nullable: false
+        year:
+            type: integer
+            nullable: false
+    manyToOne:
+        user:
+            targetEntity: User
+            joinColumn:
+                name: user_id
+                referencedColumnName: id

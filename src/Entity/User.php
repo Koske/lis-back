@@ -24,6 +24,7 @@ class User extends BaseUser
      */
     private $lastName;
 
+
     /**
      * @var \App\Entity\UserType
      */

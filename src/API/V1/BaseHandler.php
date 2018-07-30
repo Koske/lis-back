@@ -87,4 +87,5 @@ class BaseHandler
     {
         return $this->container->get('security.token_storage')->getToken()->getUser();
     }
+
 }

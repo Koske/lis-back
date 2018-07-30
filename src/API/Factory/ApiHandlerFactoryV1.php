@@ -13,6 +13,7 @@ use App\API\HandlerType;
 use App\API\V1\BonusHandler;
 use App\API\V1\BusinessClientHandler;
 use App\API\V1\DaysOffHandler;
+use App\API\V1\DaysOffRequestHandler;
 use App\API\V1\EtapeHandler;
 use App\API\V1\ParticipantHandler;
 use App\API\V1\ParticipantTypeHandler;
@@ -97,6 +98,7 @@ class ApiHandlerFactoryV1
         if($type == HandlerType::Position) {
             return new PositionHandler($em, $container, $logger);
         }
+
         return null;
     }
 }

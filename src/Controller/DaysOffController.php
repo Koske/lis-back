@@ -28,6 +28,13 @@ class DaysOffController extends BaseController
         return $handler->getDaysOff();
     }
 
+    public function getDaysOffUserAction(Request $request) {
+
+        $handler = $this->getHandler($request, HandlerType::DaysOff);
+
+        return $handler->getDaysOffUser($request);
+    }
+
     public function removeDaysOffAction(Request $request) {
 
         $handler = $this->getHandler($request, HandlerType::DaysOff);
@@ -47,5 +54,26 @@ class DaysOffController extends BaseController
         $handler = $this->getHandler($request, HandlerType::DaysOff);
 
         return $handler->getDayOffById($request);
+    }
+
+    public function decisionDaysOffAction(Request $request) {
+
+        $handler = $this->getHandler($request, HandlerType::DaysOff);
+
+        return $handler->decisionDaysOff($request);
+    }
+
+    public function getDaysOffStatsAction(Request $request) {
+
+        $handler = $this->getHandler($request, HandlerType::DaysOff);
+
+        return $handler->getDaysOffStats($request);
+    }
+
+    public function getDaysOffStatsByUserAction(Request $request) {
+
+        $handler = $this->getHandler($request, HandlerType::DaysOff);
+
+        return $handler->getDaysOffStatsByUser($request);
     }
 }

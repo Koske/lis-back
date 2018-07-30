@@ -20,10 +20,15 @@ App\Entity\DayOff:
         dateUpdated:
             type: datetime
             nullable: false
+        status:
+            type: string
+            nullable: false
+        reasonDeclined:
+            type: text
+            nullable: true
         deleted:
             type: boolean
             nullable: false
-
     manyToOne:
         user:
             targetEntity: User
