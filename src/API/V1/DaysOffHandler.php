@@ -32,81 +32,8 @@ class DaysOffHandler extends BaseHandler
         $daysOff->setDateCreated(new \DateTime());
         $daysOff->setDateUpdated(new \DateTime());
 
-        $workdaysCounter = $this->getWorkdays($start->format('Y-m-d'), $end->format('Y-m-d'));
-
-        $yearStart = $start->format('Y');
-        $yearEnd = $end->format('Y');
-
-        if($yearStart == $yearEnd){
-            $checkOne = $this->em->getRepository(DaysOffStats::class)->findBy([
-                'user' => $user,
-                'year' => $yearStart
-            ]);
-            if($checkOne== null) {
-                $daysOffStats = new DaysOffStats();
-                $daysOffStats->setUser($user);
-                $daysOffStats->setYear($yearEnd);
-                $daysOffStats->setDaysOff($workdaysCounter);
-                $this->em->persist($daysOffStats);
-            }else{
-                $days = $checkOne[0]->getDaysOff();
-                $days += $workdaysCounter;
-                $checkOne[0]->setDaysOff($days);
-
-                $this->em->persist($checkOne[0]);
-            }
-
-
-
-            $this->em->persist($daysOff);
-            $this->em->flush();
-        }else{
-            $checkOne = $this->em->getRepository(DaysOffStats::class)->findBy([
-                'user' => $user,
-                'year' => $yearStart
-            ]);
-            $checkTwo = $this->em->getRepository(DaysOffStats::class)->findBy([
-                'user' => $user,
-                'year' => $yearEnd
-            ]);
-            $yearOne = new \DateTime($yearStart. '-12-31');
-            $yearTwo= new \DateTime($yearEnd. '-01-01');
-
-            $workdaysCounterFirst = $this->getWorkdays($start->format('Y-m-d'), $yearOne->format('Y-m-d'));
-            $workdaysCounterSecond = $this->getWorkdays($yearTwo->format('Y-m-d'), $end->format('Y-m-d'));
-
-            if($checkOne == null){
-                $statsOne = new DaysOffStats();
-                $statsOne->setUser($user);
-                $statsOne->setYear($yearStart);
-                $statsOne->setDaysOff($workdaysCounterFirst);
-                $this->em->persist($statsOne);
-            }else{
-                $days = $checkOne[0]->getDaysOff();
-                $days += $workdaysCounterFirst;
-                $checkOne[0]->setDaysOff($days);
-
-                $this->em->persist($checkOne[0]);
-            }
-
-            if($checkTwo == null){
-                $statsTwo = new DaysOffStats();
-                $statsTwo->setUser($user);
-                $statsTwo->setYear($yearEnd);
-                $statsTwo->setDaysOff($workdaysCounterSecond);
-                $this->em->persist($statsTwo);
-            }else{
-                $days = $checkTwo[0]->getDaysOff();
-                $days += $workdaysCounterSecond;
-                $checkTwo[0]->setDaysOff($days);
-
-                $this->em->persist($checkTwo[0]);
-            }
-
-
-            $this->em->persist($daysOff);
-            $this->em->flush();
-        }
+        $this->em->persist($daysOff);
+        $this->em->flush();
 
 
         return $this->getSuccessResponse();
@@ -177,6 +104,83 @@ class DaysOffHandler extends BaseHandler
         $daysOff->setStatus($params->status);
         $daysOff->setReasonDeclined($params->reasonDeclined);
         $daysOff->setDateUpdated(new \DateTime());
+        $start = $daysOff->getStart();
+        $end = $daysOff->getEnd();
+        $user = $daysOff->getUser();
+        if($params->status == 'Approved'){
+            $workdaysCounter = $this->getWorkdays($start->format('Y-m-d'), $end->format('Y-m-d'));
+
+            $yearStart = $start->format('Y');
+            $yearEnd = $end->format('Y');
+
+            if($yearStart == $yearEnd){
+                $checkOne = $this->em->getRepository(DaysOffStats::class)->findBy([
+                    'user' => $user,
+                    'year' => $yearStart
+                ]);
+                if($checkOne== null) {
+                    $daysOffStats = new DaysOffStats();
+                    $daysOffStats->setUser($user);
+                    $daysOffStats->setYear($yearEnd);
+                    $daysOffStats->setDaysOff($workdaysCounter);
+                    $this->em->persist($daysOffStats);
+                }else{
+                    $days = $checkOne[0]->getDaysOff();
+                    $days += $workdaysCounter;
+                    $checkOne[0]->setDaysOff($days);
+
+                    $this->em->persist($checkOne[0]);
+                }
+
+            }else{
+                $checkOne = $this->em->getRepository(DaysOffStats::class)->findBy([
+                    'user' => $user,
+                    'year' => $yearStart
+                ]);
+                $checkTwo = $this->em->getRepository(DaysOffStats::class)->findBy([
+                    'user' => $user,
+                    'year' => $yearEnd
+                ]);
+                $yearOne = new \DateTime($yearStart. '-12-31');
+                $yearTwo= new \DateTime($yearEnd. '-01-01');
+
+                $workdaysCounterFirst = $this->getWorkdays($start->format('Y-m-d'), $yearOne->format('Y-m-d'));
+                $workdaysCounterSecond = $this->getWorkdays($yearTwo->format('Y-m-d'), $end->format('Y-m-d'));
+
+                if($checkOne == null){
+                    $statsOne = new DaysOffStats();
+                    $statsOne->setUser($user);
+                    $statsOne->setYear($yearStart);
+                    $statsOne->setDaysOff($workdaysCounterFirst);
+                    $this->em->persist($statsOne);
+                }else{
+                    $days = $checkOne[0]->getDaysOff();
+                    $days += $workdaysCounterFirst;
+                    $checkOne[0]->setDaysOff($days);
+
+                    $this->em->persist($checkOne[0]);
+                }
+
+                if($checkTwo == null){
+                    $statsTwo = new DaysOffStats();
+                    $statsTwo->setUser($user);
+                    $statsTwo->setYear($yearEnd);
+                    $statsTwo->setDaysOff($workdaysCounterSecond);
+                    $this->em->persist($statsTwo);
+                }else{
+                    $days = $checkTwo[0]->getDaysOff();
+                    $days += $workdaysCounterSecond;
+                    $checkTwo[0]->setDaysOff($days);
+
+                    $this->em->persist($checkTwo[0]);
+                }
+
+            }
+        }
+
+
+
+
         if($params->reasonDeclined != null)
             $daysOff->setReasonDeclined($params->reasonDeclined);
 
