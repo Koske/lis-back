@@ -415,3 +415,17 @@ lis_removePosition:
 lis_decideDaysOff:
   path: /api/decideDaysOff
   controller: App\Controller\PositionController:decideDaysOffAction
+
+#Holiday
+
+lis_newHoliday:
+  path: /api/newHoliday
+  controller: App\Controller\HolidayController:newHolidayAction
+
+lis_getHolidays:
+  path: /api/getHolidays
+  controller: App\Controller\HolidayController:getHolidaysAction
+
+lis_removeHoliday:
+  path: /api/removeHoliday
+  controller: App\Controller\HolidayController:removeHolidayAction

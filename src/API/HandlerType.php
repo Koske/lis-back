@@ -27,4 +27,5 @@ abstract class HandlerType
     const ParticipantType = 14;
     const UserType = 15;
     const Position = 16;
+    const Holiday = 17;
 }

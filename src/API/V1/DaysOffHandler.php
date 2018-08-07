@@ -11,6 +11,7 @@ namespace App\API\V1;
 
 use App\Entity\DayOff;
 use App\Entity\DaysOffStats;
+use App\Entity\Holiday;
 use App\Entity\User;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -26,6 +27,8 @@ class DaysOffHandler extends BaseHandler
         $end = new \DateTime($params->end);
         $daysOff->setStart($start);
         $daysOff->setEnd($end);
+        $workdays = $this->getWorkdays($daysOff->getStart()->format('Y-m-d'), $daysOff->getEnd()->format('Y-m-d'));
+        $daysOff->setWorkdays($workdays);
         $daysOff->setStatus('Pending');
         $daysOff->setDeleted(false);
         $daysOff->setUser($user);
@@ -55,7 +58,8 @@ class DaysOffHandler extends BaseHandler
 
         $user = $this->em->getRepository(User::class)->find($params->id);
         $dayOff = $this->em->getRepository(DayOff::class)->findBy([
-            'user'=> $user
+            'user'=> $user,
+            'deleted'=> false
         ]);
 
         return $this->getResponse(['dayOff'=> $dayOff]);
@@ -65,8 +69,42 @@ class DaysOffHandler extends BaseHandler
         $params = $this->getParams($request);
 
         $daysOff = $this->em->getRepository(DayOff::class)->find($params->id);
-
+        $user = $daysOff->getUser();
         $daysOff->setDeleted(true);
+
+        if($daysOff->getStatus() == 'Approved'){
+            $yearStart = $daysOff->getStart()->format('Y');
+            $yearEnd = $daysOff->getEnd()->format('Y');
+
+            if($yearStart == $yearEnd){
+                $daysOffStats = $this->em->getRepository(DaysOffStats::class)->findBy([
+                    'user'=> $user,
+                    'year'=> $yearStart
+                ]);
+                $daysOffStats[0]->setDaysOff($daysOffStats[0]->getDaysOff()- $daysOff->getWorkdays());
+                $this->em->persist($daysOffStats[0]);
+            }else{
+                $daysOffStatsStart = $this->em->getRepository(DaysOffStats::class)->findBy([
+                    'user'=> $user,
+                    'year'=> $yearStart
+                ]);
+                $daysOffStatsEnd = $this->em->getRepository(DaysOffStats::class)->findBy([
+                    'user'=> $user,
+                    'year'=> $yearEnd
+                ]);
+                $yearOne = new \DateTime($yearStart. '-12-31');
+                $yearTwo= new \DateTime($yearEnd. '-01-01');
+
+                $workdaysCounterFirst = $this->getWorkdays($daysOff->getStart()->format('Y-m-d'), $yearOne->format('Y-m-d'));
+                $workdaysCounterSecond = $this->getWorkdays($yearTwo->format('Y-m-d'), $daysOff->getEnd()->format('Y-m-d'));
+
+                $daysOffStatsStart[0]->setDaysOff($daysOffStatsStart[0]->getDaysOff()- $workdaysCounterFirst);
+                $daysOffStatsEnd[0]->setDaysOff($daysOffStatsEnd[0]->getDaysOff()- $workdaysCounterSecond);
+
+                $this->em->persist($daysOffStatsStart[0]);
+                $this->em->persist($daysOffStatsEnd[0]);
+            }
+        }
 
         $this->em->persist($daysOff);
         $this->em->flush();
@@ -108,12 +146,13 @@ class DaysOffHandler extends BaseHandler
         $end = $daysOff->getEnd();
         $user = $daysOff->getUser();
         if($params->status == 'Approved'){
-            $workdaysCounter = $this->getWorkdays($start->format('Y-m-d'), $end->format('Y-m-d'));
 
             $yearStart = $start->format('Y');
             $yearEnd = $end->format('Y');
 
             if($yearStart == $yearEnd){
+                $workdaysCounter = $this->getWorkdays($start->format('Y-m-d'), $end->format('Y-m-d'));
+
                 $checkOne = $this->em->getRepository(DaysOffStats::class)->findBy([
                     'user' => $user,
                     'year' => $yearStart
@@ -190,27 +229,31 @@ class DaysOffHandler extends BaseHandler
         return $this->getSuccessResponse();
     }
 
-    public function getWorkdays($date1, $date2, $workSat = FALSE, $patron = NULL) {
+    public function getWorkdays($date1, $date2) {
         if (!defined('SATURDAY')) define('SATURDAY', 6);
         if (!defined('SUNDAY')) define('SUNDAY', 0);
         // Array of all public festivities
-        $publicHolidays = [];
-        // TODO: Pitaj Boba koje dane za praznike da stavis
-        // The Patron day (if any) is added to public festivities
-        if ($patron) {
-            $publicHolidays[] = $patron;
+        $holidaysDB = $this->em->getRepository(Holiday::class)->findBy(['deleted'=> false]);
+
+
+        $holidays = [];
+        $dates = [];
+        foreach($holidaysDB as $h){
+            $start = new \DateTime($h->getStartDate()->format('Y-m-d'));
+            $end = new \DateTime($h->getEndDate()->format('Y-m-d'));
+            var_dump($start);
+            var_dump($end);
+            while($start <= $end){
+                array_push($dates, new \DateTime($start->format('Y-m-d')));
+                $start->modify('+1 day');
+            }
         }
-        /*
-         * Array of all Easter Mondays in the given interval
-         */
-        $yearStart = date('Y', strtotime($date1));
-        $yearEnd   = date('Y', strtotime($date2));
-        for ($i = $yearStart; $i <= $yearEnd; $i++) {
-            $easter = date('Y-m-d', easter_date($i));
-            list($y, $m, $g) = explode("-", $easter);
-            $monday = mktime(0,0,0, date($m), date($g)+1, date($y));
-            $easterMondays =[];
+        foreach($dates as $h){
+            array_push($holidays, $h->format('m-d'));
         }
+        $publicHolidays = $holidays;
+
+
         $start = strtotime($date1);
         $end   = strtotime($date2);
         $workdays = 0;
@@ -219,8 +262,7 @@ class DaysOffHandler extends BaseHandler
             $mmgg = date('m-d', $i);
             if ($day != SUNDAY &&
                 !in_array($mmgg, $publicHolidays) &&
-                !in_array($i, $easterMondays) &&
-                !($day == SATURDAY && $workSat == FALSE)) {
+                $day != SATURDAY) {
                 $workdays++;
             }
         }

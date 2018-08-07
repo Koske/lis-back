@@ -47,6 +47,27 @@ class DayOff
      */
     private $status;
 
+    /**
+     * @var integer
+     */
+    private $workdays;
+
+    /**
+     * @return int
+     */
+    public function getWorkdays(): int
+    {
+        return $this->workdays;
+    }
+
+    /**
+     * @param int $workdays
+     */
+    public function setWorkdays(int $workdays)
+    {
+        $this->workdays = $workdays;
+    }
+
 
 
 

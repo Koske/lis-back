@@ -1,0 +1,28 @@
+App\Entity\Holiday:
+    type: entity
+    table: holiday
+
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        name:
+            type: string
+            lenght: 255
+            nullable: true
+        startDate:
+            type: datetime
+            nullable: false
+        endDate:
+            type: datetime
+            nullable: false
+        dateCreated:
+            type: datetime
+            nullable: false
+        dateUpdated:
+            type: datetime
+            nullable: false
+        deleted:
+            type: boolean
+            nullable: false
