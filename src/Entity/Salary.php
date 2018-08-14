@@ -47,6 +47,10 @@ class Salary
      */
     private $user;
 
+    public function getUnixDateValid() {
+        return $this->dateValid->getTimestamp();
+    }
+
 
     /**
      * Get id

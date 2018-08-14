@@ -12,6 +12,8 @@ namespace App\API\V1;
 use App\Entity\Presence;
 use App\Entity\PresenceEdited;
 use App\Entity\User;
+use App\Model\PresenceEditedFilter;
+use App\Model\PresenceFilter;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -223,7 +225,48 @@ class PresenceHandler extends BaseHandler
     }
 
 
+    public function filterEditedPresences(Request $request){
+        $elasticManager = $this->container->get('fos_elastica.manager');
+        $params = $this->getParams($request);
+        $presenceEditedFilter = new PresenceEditedFilter();
 
+        if($params->id != null) {
+            $user = $this->em->getRepository(User::class)->find($params->id);
+            $presenceEditedFilter->setUser($user);
+        }
+
+        $presenceEditedFilter->setDeleted(false);
+        $presenceEditedFilter->setDateFrom($params->startDate);
+        $presenceEditedFilter->setDateTo($params->endDate);
+        $presenceEditedFilter->setType($params->dates);
+
+        $presenceEdited = $elasticManager->getRepository(PresenceEdited::class)->search($presenceEditedFilter);
+
+        return $this->getResponse([
+            'presences' => $presenceEdited['result'],
+            'total' => $presenceEdited['total']
+        ]);
+    }
+
+    public function filterPresences(Request $request){
+        $elasticManager = $this->container->get('fos_elastica.manager');
+        $params = $this->getParams($request);
+        $presenceFilter = new PresenceFilter();
+
+        $user = $this->em->getRepository(User::class)->find($params->id);
+        $presenceFilter->setUser($user);
+        $presenceFilter->setDeleted(false);
+        $presenceFilter->setDateFrom($params->startDate);
+        $presenceFilter->setDateTo($params->endDate);
+        $presenceFilter->setType($params->dates);
+
+        $presences = $elasticManager->getRepository(Presence::class)->search($presenceFilter);
+
+        return $this->getResponse([
+            'presences' => $presences['result'],
+            'total' => $presences['total']
+        ]);
+    }
 
 
 }

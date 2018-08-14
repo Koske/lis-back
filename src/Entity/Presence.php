@@ -57,7 +57,13 @@ class Presence
      */
     private $user;
 
+    public function getUnixStartDate() {
+        return $this->start->getTimestamp();
+    }
 
+    public function getUnixEndDate() {
+        return $this->end->getTimestamp();
+    }
 
 
     /**

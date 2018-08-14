@@ -52,6 +52,15 @@ class DayOff
      */
     private $workdays;
 
+
+    public function getUnixStartDate() {
+        return $this->start->getTimestamp();
+    }
+
+    public function getUnixEndDate() {
+        return $this->end->getTimestamp();
+    }
+
     /**
      * @return int
      */

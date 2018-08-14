@@ -63,6 +63,15 @@ class Project
     private $userCreated;
 
 
+    public function getUnixStartDate() {
+        return $this->startDate->getTimestamp();
+    }
+
+    public function getUnixEstimatedDuration() {
+        return $this->estimatedDuration->getTimestamp();
+    }
+
+
     /**
      * Get id
      *

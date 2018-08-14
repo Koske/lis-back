@@ -43,4 +43,10 @@ class SalaryController extends BaseController
 
         return $handler->editSalary($request);
     }
+
+    public function filterSalaryAction(Request $request){
+        $handler = $this->getHandler($request, HandlerType::Salary);
+
+        return $handler->filterSalary($request);
+    }
 }

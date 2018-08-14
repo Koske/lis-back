@@ -42,7 +42,13 @@ class Bonus
      */
     private $user;
 
+    public function getUnixDate() {
+        return $this->date->getTimestamp();
+    }
 
+    public function getUnixDateCreated() {
+        return $this->dateCreated->getTimestamp();
+    }
     /**
      * Get id
      *

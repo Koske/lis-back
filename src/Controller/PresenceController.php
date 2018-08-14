@@ -54,4 +54,15 @@ class PresenceController extends BaseController
         return $handler->getEditedPresences($request);
     }
 
+    public function filterEditedPresencesAction(Request $request){
+        $handler = $this->getHandler($request, HandlerType::Presence);
+
+        return $handler->filterEditedPresences($request);
+    }
+
+    public function filterPresencesAction(Request $request){
+        $handler = $this->getHandler($request, HandlerType::Presence);
+
+        return $handler->filterPresences($request);
+    }
 }

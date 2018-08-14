@@ -48,4 +48,11 @@ class BonusController extends BaseController
 
         return $handler->editBonus($request);
     }
+
+    public function filterBonusesAction(Request $request) {
+
+        $handler = $this->getHandler($request, HandlerType::Bonus);
+
+        return $handler->filterBonuses($request);
+    }
 }

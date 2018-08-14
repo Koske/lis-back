@@ -34,4 +34,11 @@ class HolidayController extends BaseController
 
         return $handler->removeHoliday($request);
     }
+
+    public function filterHolidaysAction(Request $request){
+        $handler = $this->getHandler($request, HandlerType::Holiday, null);
+
+
+        return $handler->filterHolidays($request);
+    }
 }

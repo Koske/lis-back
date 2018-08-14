@@ -10,6 +10,7 @@ namespace App\API\V1;
 
 
 use App\Entity\Holiday;
+use App\Model\HolidayFilter;
 use Symfony\Component\HttpFoundation\Request;
 
 class HolidayHandler extends BaseHandler
@@ -50,5 +51,24 @@ class HolidayHandler extends BaseHandler
         $this->em->flush();
 
         return $this->getSuccessResponse();
+    }
+
+    public function filterHolidays(Request $request){
+        $elasticManager = $this->container->get('fos_elastica.manager');
+        $params = $this->getParams($request);
+        $holidayFilter = new HolidayFilter();
+
+
+        $holidayFilter->setDeleted(false);
+        $holidayFilter->setDateFrom($params->startDate);
+        $holidayFilter->setDateTo($params->endDate);
+        $holidayFilter->setType($params->dates);
+
+        $holidays = $elasticManager->getRepository(Holiday::class)->search($holidayFilter);
+
+        return $this->getResponse([
+            'holidays' => $holidays['result'],
+            'total' => $holidays['total']
+        ]);
     }
 }

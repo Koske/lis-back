@@ -26,6 +26,8 @@ class Holiday
      */
     private $dateCreated;
 
+
+
     /**
      * @return int
      */
@@ -137,6 +139,15 @@ class Holiday
     public function setDeleted(bool $deleted)
     {
         $this->deleted = $deleted;
+    }
+
+
+    public function getUnixStartDate() {
+        return $this->startDate->getTimestamp();
+    }
+
+    public function getUnixEndDate() {
+        return $this->endDate->getTimestamp();
     }
 
     /**

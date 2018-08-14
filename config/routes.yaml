@@ -78,6 +78,14 @@ presence_userIsCheckedIn:
     path: /api/presence/userIsCheckedIn
     controller: App\Controller\PresenceController::userIsCheckedInAction
 
+presence_filterEditedPresences:
+    path: /api/filterEditedPresences
+    controller: App\Controller\PresenceController::filterEditedPresencesAction
+
+presence_filterPresences:
+    path: /api/filterPresences
+    controller: App\Controller\PresenceController::filterPresencesAction
+
 
 #Project
 
@@ -126,6 +134,7 @@ lis_taskProject:
    controller: App\Controller\TaskController:taskProjectAction
 
 #Etape
+
 lis_getEtape:
    path: /api/ge
    controller: App\Controller\EtapeController:getEtapesAction
@@ -258,6 +267,10 @@ lis_newSalary:
   path: /api/newSalary
   controller: App\Controller\SalaryController:newSalaryAction
 
+lis_filterSalary:
+  path: /api/filterSalary
+  controller: App\Controller\SalaryController:filterSalaryAction
+
 lis_getSalaries:
   path: /api/getSalaries
   controller: App\Controller\SalaryController:getSalariesAction
@@ -301,6 +314,10 @@ lis_getCountries:
 lis_newBonus:
   path: /api/newBonus
   controller: App\Controller\BonusController:newBonusAction
+
+lis_filterBonuses:
+  path: /api/filterBonuses
+  controller: App\Controller\BonusController:filterBonusesAction
 
 lis_getBonuses:
   path: /api/getBonuses
@@ -355,6 +372,10 @@ lis_getDayOffById:
 lis_decisionDaysOff:
   path: /api/decideDaysOff
   controller: App\Controller\DaysOffController:decisionDaysOffAction
+
+lis_filterDaysOff:
+  path: /api/filterDaysOff
+  controller: App\Controller\DaysOffController:filterDaysOffAction
 
 #Project Type
 
@@ -429,3 +450,7 @@ lis_getHolidays:
 lis_removeHoliday:
   path: /api/removeHoliday
   controller: App\Controller\HolidayController:removeHolidayAction
+
+lis_filterHolidays:
+  path: /api/filterHolidays
+  controller: App\Controller\HolidayController:filterHolidaysAction

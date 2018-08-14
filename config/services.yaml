@@ -36,6 +36,12 @@ services:
     FOS\ElasticaBundle\Finder\PaginatedFinderInterface: '@fos_elastica.finder.lis.user'
     FOS\ElasticaBundle\Finder\PaginatedFinderInterface: '@fos_elastica.finder.lis.project'
     FOS\ElasticaBundle\Finder\PaginatedFinderInterface: '@fos_elastica.finder.lis.participant'
+    FOS\ElasticaBundle\Finder\PaginatedFinderInterface: '@fos_elastica.finder.lis.bonus'
+    FOS\ElasticaBundle\Finder\PaginatedFinderInterface: '@fos_elastica.finder.lis.salary'
+    FOS\ElasticaBundle\Finder\PaginatedFinderInterface: '@fos_elastica.finder.lis.dayOff'
+    FOS\ElasticaBundle\Finder\PaginatedFinderInterface: '@fos_elastica.finder.lis.holiday'
+    FOS\ElasticaBundle\Finder\PaginatedFinderInterface: '@fos_elastica.finder.lis.presenceEdited'
+    FOS\ElasticaBundle\Finder\PaginatedFinderInterface: '@fos_elastica.finder.lis.presence'
 
     app.api.factory:
         class: App\API\Factory\ApiFactory

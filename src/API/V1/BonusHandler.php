@@ -11,6 +11,7 @@ namespace App\API\V1;
 
 use App\Entity\Bonus;
 use App\Entity\User;
+use App\Model\BonusFilter;
 use Symfony\Component\HttpFoundation\Request;
 
 class BonusHandler extends BaseHandler
@@ -26,7 +27,7 @@ class BonusHandler extends BaseHandler
             $bonus = new Bonus();
             $bonus->setUser($user);
             $bonus->setDeleted(false);
-            $bonus->setDateCreated(new \DateTime());
+            $bonus->setDateCreated((new \DateTime()));
             $bonus->setDateUpdated(new \DateTime());
             $bonus->setValue($params->value);
             $bonus->setDate(new \DateTime($params->date));
@@ -84,6 +85,22 @@ class BonusHandler extends BaseHandler
 
         return $this->getSuccessResponse();
 
+    }
+
+    public function filterBonuses(Request $request){
+        $elasticManager = $this->container->get('fos_elastica.manager');
+        $params = $this->getParams($request);
+        $bonusFilter = new BonusFilter();
+        $bonusFilter->setDeleted(false);
+        $bonusFilter->setDateFrom($params->startDate);
+        $bonusFilter->setDateTo($params->endDate);
+        $bonusFilter->setType($params->dates);
+        $bonuses = $elasticManager->getRepository(Bonus::class)->search($bonusFilter);
+
+        return $this->getResponse([
+            'bonuses' => $bonuses['result'],
+            'total' => $bonuses['total']
+        ]);
     }
 
 }

@@ -11,6 +11,7 @@ namespace App\API\V1;
 
 use App\Entity\Salary;
 use App\Entity\User;
+use App\Model\SalaryFilter;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Validator\Constraints\DateTime;
 
@@ -87,5 +88,20 @@ class SalaryHandler extends BaseHandler
 
         return $this->getSuccessResponse();
 
+    }
+
+    public function filterSalary(Request $request){
+        $elasticManager = $this->container->get('fos_elastica.manager');
+        $params = $this->getParams($request);
+        $salaryFilter = new SalaryFilter();
+
+        $salaryFilter->setDateFrom($params->startDate);
+        $salaryFilter->setDateTo($params->endDate);
+        $salaries = $elasticManager->getRepository(Salary::class)->search($salaryFilter);
+
+        return $this->getResponse([
+            'salaries' => $salaries['result'],
+            'total' => $salaries['total']
+        ]);
     }
 }

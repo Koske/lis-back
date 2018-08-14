@@ -13,6 +13,7 @@ use App\Entity\DayOff;
 use App\Entity\DaysOffStats;
 use App\Entity\Holiday;
 use App\Entity\User;
+use App\Model\DaysOffFilter;
 use Symfony\Component\HttpFoundation\Request;
 
 class DaysOffHandler extends BaseHandler
@@ -288,5 +289,28 @@ class DaysOffHandler extends BaseHandler
         ]);
 
         return $this->getResponse(['daysOffStats'=> $daysOffStats]);
+    }
+
+    public function filterDaysOff(Request $request){
+        $elasticManager = $this->container->get('fos_elastica.manager');
+        $params = $this->getParams($request);
+        $daysOffFilter = new DaysOffFilter();
+
+        if($params->id != null) {
+            $user = $this->em->getRepository(User::class)->find($params->id);
+            $daysOffFilter->setUser($user);
+        }
+
+        $daysOffFilter->setDeleted(false);
+        $daysOffFilter->setDateFrom($params->startDate);
+        $daysOffFilter->setDateTo($params->endDate);
+        $daysOffFilter->setType($params->dates);
+
+        $daysOff = $elasticManager->getRepository(DayOff::class)->search($daysOffFilter);
+
+        return $this->getResponse([
+            'daysOff' => $daysOff['result'],
+            'total' => $daysOff['total']
+        ]);
     }
 }

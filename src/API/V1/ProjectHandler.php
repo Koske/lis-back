@@ -128,6 +128,9 @@ class ProjectHandler extends BaseHandler
         $projectFilter->setPage($params->page);
         $projectFilter->setDeleted(false);
         $projectFilter->setFinished($params->finished);
+        $projectFilter->setDateFrom($params->startDate);
+        $projectFilter->setDateTo($params->endDate);
+        $projectFilter->setType($params->dates);
         $projects = $elasticManager->getRepository(Project::class)->search($projectFilter);
         $totalPages = 0;
 

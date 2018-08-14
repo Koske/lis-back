@@ -49,7 +49,25 @@ class PresenceEdited
      */
     private $presence;
 
+    public function getUnixStartDate() {
+        if($this->start!= null)
+            return $this->start->getTimestamp();
+        return 0;
+    }
 
+    public function getUnixEndDate() {
+        if($this->end!= null)
+            return $this->end->getTimestamp();
+        return 0;
+    }
+
+    public function getUnixOriginalStartDate() {
+        return $this->originalStart->getTimestamp();
+    }
+
+    public function getUnixOriginalEndDate() {
+        return $this->originalEnd->getTimestamp();
+    }
 
     /**
      * Get id

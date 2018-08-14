@@ -6,6 +6,8 @@ namespace App\Repository;
 
 use FOS\ElasticaBundle\Repository;
 use App\Model\ProjectFilter;
+use Elastica\Query;
+
 
 class ProjectRepository extends Repository
 {
@@ -38,6 +40,10 @@ class ProjectRepository extends Repository
             $boolQuery->addMust($finishedQuery);
         }
 
+        if($projectFilter->getType() && ($projectFilter->getDateFrom() || $projectFilter->getDateTo())){
+            $boolQuery->addMust($this->getDateQuery($projectFilter->getDateFrom(), $projectFilter->getDateTo(), $projectFilter->getType()));
+        }
+
         $query = new \Elastica\Query();
         $query->setQuery($boolQuery);
 
@@ -49,5 +55,25 @@ class ProjectRepository extends Repository
             'total' => $count,
             'result' => $result
         );
+    }
+
+    private function getDateQuery($from, $to, $type){
+        if($from!= null && $to!= null) {
+            $dateQuery = new Query\Range($type, [
+                'gte' => ((new \DateTime($from))->setTime(0, 0, 0))->getTimestamp(),
+                'lte' => ((new \DateTime($to))->setTime(23, 59, 59))->getTimestamp()
+            ]);
+        }else if($from!= null && $to== null){
+            $dateQuery = new Query\Range($type, [
+                'gte' => ((new \DateTime($from))->setTime(0, 0, 0))->getTimestamp()
+            ]);
+        }else if($from == null && $to!= null){
+            $dateQuery = new Query\Range($type, [
+                'lte' => ((new \DateTime($to))->setTime(23, 59, 59))->getTimestamp()
+            ]);
+        }
+
+
+        return $dateQuery;
     }
 }

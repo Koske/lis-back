@@ -76,4 +76,11 @@ class DaysOffController extends BaseController
 
         return $handler->getDaysOffStatsByUser($request);
     }
+
+    public function filterDaysOffAction(Request $request) {
+
+        $handler = $this->getHandler($request, HandlerType::DaysOff);
+
+        return $handler->filterDaysOff($request);
+    }
 }
