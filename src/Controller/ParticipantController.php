@@ -61,4 +61,10 @@ class ParticipantController extends BaseController
 
         return $handler->getProjectsForParticipant($request);
     }
+    public function filterParticipantsAction(Request $request)
+    {
+        $handler = $this->getHandler($request, HandlerType::Participant, null);
+
+        return $handler->filterParticipants($request);
+    }
 }

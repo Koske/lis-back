@@ -133,6 +133,10 @@ lis_taskProject:
    path: /api/tp
    controller: App\Controller\TaskController:taskProjectAction
 
+lis_filterProjectsByUser:
+   path: /api/filterProjectsByUser
+   controller: App\Controller\ProjectController:filterProjectsByUserAction
+
 #Etape
 
 lis_getEtape:
@@ -190,6 +194,7 @@ lis_removeTask:
 lis_getParticipants:
    path: /api/getParticipants
    controller: App\Controller\ParticipantController:getParticipantAction
+
 
 lis_getProjectsForParticipant:
    path: /api/getProjectsForParticipant

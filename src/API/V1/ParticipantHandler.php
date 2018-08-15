@@ -16,6 +16,7 @@ use App\Entity\Project;
 use App\Entity\Task;
 use App\Entity\User;
 use App\Model\ParticipantFilter;
+use App\Model\ProjectFilter;
 use App\Model\UserFilter;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -197,4 +198,6 @@ class ParticipantHandler extends BaseHandler
             'projects' => $projects
         ]);
     }
+
+
 }

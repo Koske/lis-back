@@ -21,6 +21,26 @@ class ProjectFilter
     protected $dateFrom;
     protected $dateTo;
     protected $type;
+    protected $projects;
+
+    /**
+     * @return mixed
+     */
+    public function getProjects()
+    {
+        return $this->projects;
+    }
+
+    /**
+     * @param mixed $projects
+     */
+    public function setProjects($projects)
+    {
+        $this->projects = $projects;
+    }
+
+
+
 
     /**
      * @return mixed

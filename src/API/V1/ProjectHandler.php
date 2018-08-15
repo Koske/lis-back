@@ -3,6 +3,7 @@
 namespace App\API\V1;
 
 
+use App\Entity\Participant;
 use App\Entity\Project;
 use App\Entity\Etape;
 use App\Entity\ProjectType;
@@ -117,13 +118,12 @@ class ProjectHandler extends BaseHandler
     }
 
     public function filterProjects(Request $request){
-
-
         $elasticManager = $this->container->get('fos_elastica.manager');
         $params = $this->getParams($request);
         $perPage = $params->perPage;
         $page = $params->page;
         $projectFilter = new ProjectFilter();
+
         $projectFilter->setPerPage($params->perPage);
         $projectFilter->setPage($params->page);
         $projectFilter->setDeleted(false);
@@ -204,7 +204,38 @@ class ProjectHandler extends BaseHandler
     }
 
 
+    public function filterProjectsByUser(Request $request){
+        $elasticManager = $this->container->get('fos_elastica.manager');
+        $params = $this->getParams($request);
 
+        $user = $this->em->getRepository(User::class)->find($params->id);
+        $participants = $this->em->getRepository(Participant::class)->findBy([
+            'user'=> $user,
+            'deleted'=> false
+        ]);
+        $projectsArr = [];
+        foreach($participants as $p)
+            array_push($projectsArr, $p->getProject());
+
+        $projectFilter = new ProjectFilter();
+
+        $projectFilter->setFinished($params->finished);
+        $projectFilter->setProjects($projectsArr);
+        $projectFilter->setDateFrom($params->startDate);
+        $projectFilter->setDateTo($params->endDate);
+        $projectFilter->setType($params->dates);
+        $projectFilter->setDeleted(false);
+
+        $projects = $elasticManager->getRepository(Project::class)->searchProjectByUser($projectFilter);
+
+
+        return $this->getResponse([
+            'projects' => $projects['result'],
+            'total' => $projects['total']
+        ]);
+
+//        return $this->getResponse(['projectIds'=> $projectFilter]);
+    }
 
 
 }

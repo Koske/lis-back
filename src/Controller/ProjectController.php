@@ -67,5 +67,12 @@ class ProjectController extends BaseController
 
         return $handler->getProjectById($request);
     }
+    public function filterProjectsByUserAction(Request $request)
+    {
+        $handler = $this->getHandler($request, HandlerType::Project, null);
+
+
+        return $handler->filterProjectsByUser($request);
+    }
 
 }
