@@ -459,3 +459,56 @@ lis_removeHoliday:
 lis_filterHolidays:
   path: /api/filterHolidays
   controller: App\Controller\HolidayController:filterHolidaysAction
+
+#Project Expense
+
+
+lis_newProjectExpense:
+  path: /api/newProjectExpense
+  controller: App\Controller\ProjectExpenseController:newProjectExpenseAction
+
+lis_getAllProjectExpenses:
+  path: /api/getAllProjectExpenses
+  controller: App\Controller\ProjectExpenseController:getAllProjectExpensesAction
+
+lis_removeProjectExpense:
+  path: /api/removeProjectExpense
+  controller: App\Controller\ProjectExpenseController:removeProjectExpenseAction
+
+lis_editProjectExpense:
+  path: /api/editProjectExpense
+  controller: App\Controller\ProjectExpenseController:editProjectExpenseAction
+
+lis_getProjectExpenseById:
+  path: /api/getProjectExpenseById
+  controller: App\Controller\ProjectExpenseController:getProjectExpenseByIdAction
+
+#Currency
+
+lis_getCurrency:
+  path: /api/getCurrency
+  controller: App\Controller\CurrencyController:getCurrencyAction
+
+#Bank
+
+lis_newBank:
+  path: /api/newBank
+  controller: App\Controller\BankController:newBankAction
+
+lis_getAllBanks:
+  path: /api/getAllBanks
+  controller: App\Controller\BankController:getAllBanksAction
+
+lis_removeBank:
+  path: /api/removeBank
+  controller: App\Controller\BankController:removeBankAction
+
+#Account
+
+lis_newAccount:
+  path: /api/newAccount
+  controller: App\Controller\AccountController:newAccountAction
+
+lis_getAccounts:
+  path: /api/getAccounts
+  controller: App\Controller\AccountController:getAccountsAction

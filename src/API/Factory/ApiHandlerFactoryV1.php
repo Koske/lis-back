@@ -10,8 +10,11 @@ namespace App\API\Factory;
 
 
 use App\API\HandlerType;
+use App\API\V1\AccountHandler;
+use App\API\V1\BankHandler;
 use App\API\V1\BonusHandler;
 use App\API\V1\BusinessClientHandler;
+use App\API\V1\CurrencyHandler;
 use App\API\V1\DaysOffHandler;
 use App\API\V1\DaysOffRequestHandler;
 use App\API\V1\EtapeHandler;
@@ -20,6 +23,7 @@ use App\API\V1\ParticipantHandler;
 use App\API\V1\ParticipantTypeHandler;
 use App\API\V1\PositionHandler;
 use App\API\V1\PresenceHandler;
+use App\API\V1\ProjectExpenseHandler;
 use App\API\V1\ProjectHandler;
 use App\API\V1\ProjectTypeHandler;
 use App\API\V1\ReportHandler;
@@ -102,6 +106,22 @@ class ApiHandlerFactoryV1
 
         if($type == HandlerType::Holiday) {
             return new HolidayHandler($em, $container, $logger);
+        }
+
+        if($type == HandlerType::ProjectExpense) {
+            return new ProjectExpenseHandler($em, $container, $logger);
+        }
+
+        if($type == HandlerType::Currency) {
+            return new CurrencyHandler($em, $container, $logger);
+        }
+
+        if($type == HandlerType::Bank) {
+            return new BankHandler($em, $container, $logger);
+        }
+
+        if($type == HandlerType::Account) {
+            return new AccountHandler($em, $container, $logger);
         }
 
         return null;

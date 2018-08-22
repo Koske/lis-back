@@ -31,10 +31,8 @@ class BonusHandler extends BaseHandler
             $bonus->setDateUpdated(new \DateTime());
             $bonus->setValue($params->value);
             $bonus->setDate(new \DateTime($params->date));
-
             $this->em->persist($bonus);
             $this->em->flush();
-
             return $this->getSuccessResponse();
         }else{
             return $this->getResponse(['Exists']);

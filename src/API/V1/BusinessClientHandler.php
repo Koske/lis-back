@@ -10,6 +10,7 @@ namespace App\API\V1;
 
 
 use App\Entity\Account;
+use App\Entity\Bank;
 use App\Entity\BusinessClient;
 use App\Entity\City;
 use App\Entity\Country;
@@ -26,28 +27,27 @@ class BusinessClientHandler extends BaseHandler
         if(!$exists) {
             $country = $this->em->getRepository(Country::class)->find($params->country);
 
+
+
+
             $city = new City();
             $city->setName($params->city);
             $city->setCountry($country);
             $city->setZipCode($params->zip);
 
-            $account = new Account();
-            $account->setAccountNumber($params->accountNumber);
-            $account->setBank($params->bank);
 
             $businessClient = new BusinessClient();
-            $businessClient->setAccount($account);
             $businessClient->setName($params->name);
             $businessClient->setCity($city);
             $businessClient->setAddress($params->address);
             $businessClient->setPhoneNumber($params->phoneNumber);
 
 
+
             $this->em->persist($city);
             $this->em->flush();
 
-            $this->em->persist($account);
-            $this->em->flush();
+
 
             $this->em->persist($businessClient);
             $this->em->flush();

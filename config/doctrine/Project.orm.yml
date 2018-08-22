@@ -36,7 +36,9 @@ App\Entity\Project:
         finished:
             type: boolean
             nullable: true
-
+        totalCost:
+            type: decimal
+            nullable: false
     manyToOne:
         userCreated:
             targetEntity: User
@@ -48,6 +50,8 @@ App\Entity\Project:
             joinColumn:
                 name: project_type_id
                 referencedColumnName: id
-
-
-
+        currency:
+            targetEntity: Currency
+            joinColumn:
+                name: currency_id
+                referencedColumnName: id

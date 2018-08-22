@@ -6,11 +6,20 @@ App\Entity\Account:
             type: integer
             generator: { strategy: AUTO }
     fields:
-        bank:
-            type: string
-            lenght: 255
-            nullable: true
         accountNumber:
             type: string
             lenght: 255
-            nullable: true
+            nullable: false
+        type:
+            type: string
+            length: 255
+            nullable: false
+        deleted:
+            type: boolean
+            nullable: false
+    manyToOne:
+         bank:
+            targetEntity: Bank
+            joinColumn:
+                name: bank_id
+                referencedColumnName: id

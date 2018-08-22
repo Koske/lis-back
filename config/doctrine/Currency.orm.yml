@@ -1,0 +1,24 @@
+App\Entity\Currency:
+    type: entity
+    table: currency
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        name:
+            type: string
+            lenght: 255
+            nullable: true
+        country:
+            type: string
+            length: 255
+            nullable: true
+        code:
+            type: string
+            length: 255
+            nullable: true
+        symbol:
+            type: string
+            length: 255
+            nullable: true

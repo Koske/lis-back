@@ -28,4 +28,8 @@ abstract class HandlerType
     const UserType = 15;
     const Position = 16;
     const Holiday = 17;
+    const ProjectExpense = 18;
+    const Currency = 19;
+    const Bank = 20;
+    const Account = 21;
 }

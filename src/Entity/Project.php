@@ -327,7 +327,53 @@ class Project
      */
     private $projectType;
 
+    private $totalCost;
 
+    /**
+     * @return mixed
+     */
+    public function getTotalCost()
+    {
+        return $this->totalCost;
+    }
+
+    /**
+     * @param mixed $totalCost
+     */
+    public function setTotalCost($totalCost)
+    {
+        $this->totalCost = $totalCost;
+    }
+
+
+    /**
+     * @var \App\Entity\Currency
+     */
+    private $currency;
+
+    /**
+     * Set currency
+     *
+     * @param \App\Entity\Currency $currency
+     *
+     * @return Project
+     */
+    public function setCurrency(\App\Entity\Currency $currency = null)
+    {
+        $this->currency = $currency;
+
+        return $this;
+    }
+
+    /**
+     * Get currency
+     *
+     * @return \App\Entity\Currency
+     */
+    public function getCurrency()
+    {
+        return $this->currency;
+    }
     /**
      * Set projectType
      *

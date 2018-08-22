@@ -1,18 +1,19 @@
-App\Entity\Bonus:
+App\Entity\ProjectExpense:
     type: entity
-    table: bonus
+    table: project_expense
 
     id:
         id:
             type: integer
             generator: { strategy: AUTO }
-
     fields:
-        value:
+        amount:
             type: decimal
             nullable: false
-        date:
-            type: datetime
+        description:
+            type: text
+            lenght: 255
+            nullable: true
         dateCreated:
             type: datetime
             nullable: false
@@ -23,8 +24,13 @@ App\Entity\Bonus:
             type: boolean
             nullable: false
     manyToOne:
-        user:
-            targetEntity: User
+        project:
+            targetEntity: Project
             joinColumn:
-                name: user_id
+                name: project_id
+                referencedColumnName: id
+        currency:
+            targetEntity: Currency
+            joinColumn:
+                name: currency_id
                 referencedColumnName: id

@@ -15,14 +15,79 @@ class Account
     /**
      * @var string
      */
+    private $accountNumber;
+
+    /**
+     * @var \App\Entity\Bank
+     */
     private $bank;
 
     /**
      * @var string
      */
-    private $accountNumber;
+    private $type;
+
+    /**
+     * @var boolean
+     */
+    private $deleted;
+
+    /**
+     * @return bool
+     */
+    public function isDeleted(): bool
+    {
+        return $this->deleted;
+    }
+
+    /**
+     * @param bool $deleted
+     */
+    public function setDeleted(bool $deleted)
+    {
+        $this->deleted = $deleted;
+    }
+
+    /**
+     * @return string
+     */
+    public function getType(): string
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param string $type
+     */
+    public function setType(string $type)
+    {
+        $this->type = $type;
+    }
 
 
+    /**
+     * Set bank
+     *
+     * @param \App\Entity\Bank $bank
+     *
+     * @return Account
+     */
+    public function setBank(\App\Entity\Bank $bank = null)
+    {
+        $this->bank = $bank;
+
+        return $this;
+    }
+
+    /**
+     * Get bank
+     *
+     * @return \App\Entity\Bank
+     */
+    public function getBank()
+    {
+        return $this->bank;
+    }
 
     /**
      * Get id
@@ -34,29 +99,7 @@ class Account
         return $this->id;
     }
 
-    /**
-     * Set bank
-     *
-     * @param string $bank
-     *
-     * @return Account
-     */
-    public function setBank($bank)
-    {
-        $this->bank = $bank;
 
-        return $this;
-    }
-
-    /**
-     * Get bank
-     *
-     * @return string
-     */
-    public function getBank()
-    {
-        return $this->bank;
-    }
 
     /**
      * Set accountNumber
