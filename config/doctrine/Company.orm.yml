@@ -1,0 +1,54 @@
+App\Entity\Company:
+    type: entity
+    table: company
+
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+
+    fields:
+        name:
+            type: string
+            lenght: 255
+            nullable: false
+        address:
+            type: string
+            lenght: 255
+            nullable: true
+        firmId:
+            type: integer
+            nullable: false
+        phone:
+            type: string
+            lenght: 255
+            nullable: false
+        email:
+            type: string
+            lenght: 255
+            nullable: false
+        web:
+            type: string
+            lenght: 255
+            nullable: false
+        deleted:
+            type: boolean
+            nullable: false
+        dateCreated:
+            type: datetime
+            nullable: false
+        dateUpdated:
+            type: datetime
+            nullable: false
+    manyToOne:
+        account:
+            targetEntity: Account
+            joinColumn:
+                name: account_id
+                referencedColumnName: id
+        city:
+            targetEntity: City
+            joinColumn:
+                name: city_id
+                referencedColumnName: id
+

@@ -495,6 +495,10 @@ lis_newBank:
   path: /api/newBank
   controller: App\Controller\BankController:newBankAction
 
+lis_getExchangeRate:
+  path: /api/getExchangeRate
+  controller: App\Controller\BankController:getExchangeRateAction
+
 lis_getAllBanks:
   path: /api/getAllBanks
   controller: App\Controller\BankController:getAllBanksAction
@@ -512,3 +516,39 @@ lis_newAccount:
 lis_getAccounts:
   path: /api/getAccounts
   controller: App\Controller\AccountController:getAccountsAction
+
+#Invoices
+
+lis_newInvoice:
+  path: /api/newInvoice
+  controller: App\Controller\InvoiceController:newInvoiceAction
+
+lis_getLastSerialNumber:
+  path: /api/getLastSerialNumber
+  controller: App\Controller\InvoiceController:getLastSerialNumberAction
+
+#Company
+
+lis_newCompany:
+  path: /api/newCompany
+  controller: App\Controller\CompanyController:newCompanyAction
+
+lis_getCompanies:
+  path: /api/getCompanies
+  controller: App\Controller\CompanyController:getCompaniesAction
+
+lis_getCompanyById:
+  path: /api/getCompanyById
+  controller: App\Controller\CompanyController:getCompanyByIdAction
+
+lis_editCompany:
+  path: /api/editCompany
+  controller: App\Controller\CompanyController:editCompanyAction
+
+lis_removeCompany:
+  path: /api/removeCompany
+  controller: App\Controller\CompanyController:removeCompanyAction
+
+lis_getCountries:
+  path: /api/getCountries
+  controller: App\Controller\CompanyController:getCountriesAction

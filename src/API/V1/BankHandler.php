@@ -46,4 +46,29 @@ class BankHandler extends BaseHandler
 
         return $this->getSuccessResponse();
     }
+
+    public function getExchangeRate(Request $request){
+        $params = $this->getParams($request);
+        $currency = strtolower($params->currency);
+        $api_id = 'f53ec1381124cf3ac11a0ac413c7ee76';
+        $url = 'https://api.kursna-lista.info/'.$api_id.'/konvertor/'.$currency.'/rsd/1';
+        $content = file_get_contents($url);
+
+        if (empty($content))
+        {
+            return $this->getResponse(['Error occurred while getting data']);
+        }
+
+        $data = json_decode($content, true);
+
+
+        if ($data['status'] == 'ok')
+        {
+            return $this->getResponse([ $data['result']['value']]);
+        }
+        else
+        {
+            return $this->getResponse([ "Error occurred: " . $data['code'] . " - " . $data['msg']]);
+        }
+        }
 }

@@ -14,11 +14,12 @@ use App\API\V1\AccountHandler;
 use App\API\V1\BankHandler;
 use App\API\V1\BonusHandler;
 use App\API\V1\BusinessClientHandler;
+use App\API\V1\CompanyHandler;
 use App\API\V1\CurrencyHandler;
 use App\API\V1\DaysOffHandler;
-use App\API\V1\DaysOffRequestHandler;
 use App\API\V1\EtapeHandler;
 use App\API\V1\HolidayHandler;
+use App\API\V1\InvoiceHandler;
 use App\API\V1\ParticipantHandler;
 use App\API\V1\ParticipantTypeHandler;
 use App\API\V1\PositionHandler;
@@ -122,6 +123,14 @@ class ApiHandlerFactoryV1
 
         if($type == HandlerType::Account) {
             return new AccountHandler($em, $container, $logger);
+        }
+
+        if($type == HandlerType::Invoice) {
+            return new InvoiceHandler($em, $container, $logger);
+        }
+
+        if($type == HandlerType::Company) {
+            return new CompanyHandler($em, $container, $logger);
         }
 
         return null;

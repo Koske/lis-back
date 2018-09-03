@@ -90,3 +90,6 @@ services:
     app.etape:
          class: App\Service\EtapeService
          arguments: ["@doctrine.orm.entity_manager"]
+    app.country:
+         class: App\Service\CountryService
+         arguments: ["@doctrine.orm.entity_manager"]

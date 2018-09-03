@@ -58,11 +58,15 @@ class Presence
     private $user;
 
     public function getUnixStartDate() {
-        return $this->start->getTimestamp();
+        if($this->start!= null)
+            return $this->start->getTimestamp();
+        return 'No start date';
     }
 
     public function getUnixEndDate() {
-        return $this->end->getTimestamp();
+        if($this->end!= null)
+            return $this->end->getTimestamp();
+        return 'No end date';
     }
 
 

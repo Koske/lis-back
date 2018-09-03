@@ -49,11 +49,12 @@ class PresenceHandler extends BaseHandler
         $presence->setStart(new \DateTime());
         $presence->setEightHours(false);
         $presence->setDateCreated(new \DateTime());
+        $presence->setDateUpdated(new \DateTime());
         $presence->setYear($currentDate->format("Y"));
         $presence->setMonth($currentDate->format("m"));
         $presence->setClosed(false);
         $presence->setAutoClosed(false);
-
+        $presence->setDeleted(false);
 
 
         $this->em->persist($presence);

@@ -1,0 +1,35 @@
+App\Entity\InvoiceItem:
+    type: entity
+    table: invoice_item
+
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        name:
+            type: string
+            lenght: 255
+            nullable: true
+        unit:
+            type: string
+            lenght: 255
+            nullable: true
+        priceNoPDV:
+            type: decimal
+            nullable: false
+        amount:
+            type: decimal
+            nullable: false
+        dateCreated:
+            type: datetime
+            nullable: false
+        dateUpdated:
+            type: datetime
+            nullable: false
+    manyToOne:
+        invoice:
+            targetEntity: Invoice
+            joinColumn:
+                name: invoice_id
+                referencedColumnName: id

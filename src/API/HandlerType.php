@@ -32,4 +32,6 @@ abstract class HandlerType
     const Currency = 19;
     const Bank = 20;
     const Account = 21;
+    const Invoice = 22;
+    const Company = 23;
 }

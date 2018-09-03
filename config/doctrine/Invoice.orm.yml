@@ -1,0 +1,44 @@
+App\Entity\Invoice:
+    type: entity
+    table: invoice
+
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        type:
+            type: string
+            lenght: 255
+            nullable: false
+        serialNumber:
+            type: integer
+            nullable: false
+        year:
+            type: integer
+            nullable: false
+        paymentDeadline:
+            type: string
+            lenght: 255
+            nullable: false
+        paymentMethod:
+            type: string
+            lenght: 255
+            nullable: false
+        dateCreated:
+            type: datetime
+            nullable: false
+        dateUpdated:
+            type: datetime
+            nullable: false
+    manyToOne:
+        businessClient:
+            targetEntity: BusinessClient
+            joinColumn:
+                name: business_client_id
+                referencedColumnName: id
+        company:
+            targetEntity: Company
+            joinColumn:
+                name: company_id
+                referencedColumnName: id

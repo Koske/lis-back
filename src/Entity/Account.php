@@ -33,6 +33,32 @@ class Account
     private $deleted;
 
     /**
+     * @var string
+     */
+    private $pib;
+
+    /**
+     * @var string
+     */
+    private $iban;
+
+    /**
+     * @return string
+     */
+    public function getPib(): string
+    {
+        return $this->pib;
+    }
+
+    /**
+     * @param string $pib
+     */
+    public function setPib(string $pib)
+    {
+        $this->pib = $pib;
+    }
+
+    /**
      * @return bool
      */
     public function isDeleted(): bool
@@ -123,6 +149,22 @@ class Account
     public function getAccountNumber()
     {
         return $this->accountNumber;
+    }
+
+    /**
+     * @return string
+     */
+    public function getIban(): string
+    {
+        return $this->iban;
+    }
+
+    /**
+     * @param string $iban
+     */
+    public function setIban(string $iban)
+    {
+        $this->iban = $iban;
     }
 
 }

@@ -34,4 +34,11 @@ class BankController extends BaseController
 
         return $handler->removeBank($request);
     }
+
+    public function getExchangeRateAction(Request $request) {
+
+        $handler = $this->getHandler($request, HandlerType::Bank);
+
+        return $handler->getExchangeRate($request);
+    }
 }

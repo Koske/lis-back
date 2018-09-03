@@ -14,8 +14,15 @@ App\Entity\Account:
             type: string
             length: 255
             nullable: false
+        iban:
+            type: string
+            lenght: 255
+            nullable: false
         deleted:
             type: boolean
+            nullable: false
+        pib:
+            type: string
             nullable: false
     manyToOne:
          bank:
