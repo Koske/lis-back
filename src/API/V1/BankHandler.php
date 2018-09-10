@@ -70,5 +70,5 @@ class BankHandler extends BaseHandler
         {
             return $this->getResponse([ "Error occurred: " . $data['code'] . " - " . $data['msg']]);
         }
-        }
+    }
 }

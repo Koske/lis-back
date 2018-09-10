@@ -62,6 +62,37 @@ class Invoice
     private $company;
 
     /**
+     * @var \App\Entity\Currency
+     */
+    private $currency;
+
+    /**
+     * @var boolean
+     */
+
+    private $deleted;
+
+    /**
+     * @return bool
+     */
+    public function isDeleted(): bool
+    {
+        return $this->deleted;
+    }
+
+    /**
+     * @param bool $deleted
+     */
+    public function setDeleted(bool $deleted)
+    {
+        $this->deleted = $deleted;
+    }
+
+
+    public function getUnixDateCreated() {
+        return $this->dateCreated->getTimestamp();
+    }
+    /**
      * @return string
      */
     public function getPaymentMethod(): string
@@ -189,6 +220,30 @@ class Invoice
     public function getCompany()
     {
         return $this->company;
+    }
+
+    /**
+     * Set currency
+     *
+     * @param \App\Entity\Currency $currency
+     *
+     * @return Invoice
+     */
+    public function setCurrency(\App\Entity\Currency $currency = null)
+    {
+        $this->currency = $currency;
+
+        return $this;
+    }
+
+    /**
+     * Get currency
+     *
+     * @return \App\Entity\Currency
+     */
+    public function getCurrency()
+    {
+        return $this->currency;
     }
 
     /**

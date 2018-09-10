@@ -20,6 +20,7 @@ use App\API\V1\DaysOffHandler;
 use App\API\V1\EtapeHandler;
 use App\API\V1\HolidayHandler;
 use App\API\V1\InvoiceHandler;
+use App\API\V1\InvoiceItemHandler;
 use App\API\V1\ParticipantHandler;
 use App\API\V1\ParticipantTypeHandler;
 use App\API\V1\PositionHandler;
@@ -131,6 +132,10 @@ class ApiHandlerFactoryV1
 
         if($type == HandlerType::Company) {
             return new CompanyHandler($em, $container, $logger);
+        }
+
+        if($type == HandlerType::InvoiceItem) {
+            return new InvoiceItemHandler($em, $container, $logger);
         }
 
         return null;

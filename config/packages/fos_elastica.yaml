@@ -206,3 +206,29 @@ fos_elastica:
                         repository: App\Repository\PresenceRepository
                         finder: ~
                         provider: ~
+                invoice:
+                    properties:
+                        id:
+                           type: integer
+                        unixDateCreated:
+                           type: integer
+                        type:
+                            type: string
+                        deleted:
+                            type: boolean
+                        business_client:
+                            type: object
+                            properties:
+                                id:
+                                   type: integer
+                        company:
+                            type: object
+                            properties:
+                                id:
+                                   type: integer
+                    persistence:
+                        driver: orm
+                        model: App\Entity\Invoice
+                        repository: App\Repository\InvoiceRepository
+                        finder: ~
+                        provider: ~

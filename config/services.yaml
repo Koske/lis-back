@@ -42,6 +42,7 @@ services:
     FOS\ElasticaBundle\Finder\PaginatedFinderInterface: '@fos_elastica.finder.lis.holiday'
     FOS\ElasticaBundle\Finder\PaginatedFinderInterface: '@fos_elastica.finder.lis.presenceEdited'
     FOS\ElasticaBundle\Finder\PaginatedFinderInterface: '@fos_elastica.finder.lis.presence'
+    FOS\ElasticaBundle\Finder\PaginatedFinderInterface: '@fos_elastica.finder.lis.invoice'
 
     app.api.factory:
         class: App\API\Factory\ApiFactory

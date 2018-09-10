@@ -40,7 +40,7 @@ class InvoiceItem
     /**
      * @var string
      */
-    private $priceNoPDV;
+    private $unitPrice;
 
     /**
      * @var string
@@ -178,16 +178,18 @@ class InvoiceItem
     /**
      * @return string
      */
-    public function getPriceNoPDV(): string
+    public function getUnitPrice(): string
     {
-        return $this->priceNoPDV;
+        return $this->unitPrice;
     }
 
     /**
-     * @param string $priceNoPDV
+     * @param string $unitPrice
      */
-    public function setPriceNoPDV(string $priceNoPDV)
+    public function setUnitPrice(string $unitPrice)
     {
-        $this->priceNoPDV = $priceNoPDV;
+        $this->unitPrice = $unitPrice;
     }
+
+
 }

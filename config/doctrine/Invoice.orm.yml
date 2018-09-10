@@ -31,6 +31,9 @@ App\Entity\Invoice:
         dateUpdated:
             type: datetime
             nullable: false
+        deleted:
+            type: boolean
+            nullable: false
     manyToOne:
         businessClient:
             targetEntity: BusinessClient
@@ -41,4 +44,9 @@ App\Entity\Invoice:
             targetEntity: Company
             joinColumn:
                 name: company_id
+                referencedColumnName: id
+        currency:
+            targetEntity: Currency
+            joinColumn:
+                name: currency_id
                 referencedColumnName: id

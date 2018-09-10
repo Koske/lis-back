@@ -523,9 +523,31 @@ lis_newInvoice:
   path: /api/newInvoice
   controller: App\Controller\InvoiceController:newInvoiceAction
 
+lis_removeInvoice:
+  path: /api/removeInvoice
+  controller: App\Controller\InvoiceController:removeInvoiceAction
+
 lis_getLastSerialNumber:
   path: /api/getLastSerialNumber
   controller: App\Controller\InvoiceController:getLastSerialNumberAction
+
+lis_getInvoices:
+  path: /api/getInvoices
+  controller: App\Controller\InvoiceController:getInvoicesAction
+
+lis_getInvoiceById:
+  path: /api/getInvoiceById
+  controller: App\Controller\InvoiceController:getInvoiceByIdAction
+
+lis_filterInvoices:
+  path: /api/filterInvoices
+  controller: App\Controller\InvoiceController:filterInvoicesAction
+
+#Invoice Item
+
+lis_getInvoiceItem:
+  path: /api/getInvoiceItem
+  controller: App\Controller\InvoiceItemController:getInvoiceItemAction
 
 #Company
 

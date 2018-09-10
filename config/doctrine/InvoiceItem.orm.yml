@@ -15,7 +15,7 @@ App\Entity\InvoiceItem:
             type: string
             lenght: 255
             nullable: true
-        priceNoPDV:
+        unitPrice:
             type: decimal
             nullable: false
         amount:

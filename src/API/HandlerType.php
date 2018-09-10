@@ -34,4 +34,5 @@ abstract class HandlerType
     const Account = 21;
     const Invoice = 22;
     const Company = 23;
+    const InvoiceItem = 24;
 }
